@@ -1,5 +1,6 @@
-
-
+@extends('template.dashboard')
+@section('title', 'Sasaran')
+@section('content')
 
     <div class="content">
         <h1>Sasaran Program<br></h1>
@@ -32,3 +33,7 @@
             </tbody>
         </table>
     </div>
+    @endsection
+
+    @section('inline_script')
+@endsection

@@ -1,7 +1,7 @@
 
-
-
-
+@extends('template.dashboard')
+@section('title', 'edit')
+@section('content')
 <form action="{{ route('kinerjas.update', $kinerja->id) }}" method="post">
     @csrf
     @method('PUT')
@@ -16,4 +16,7 @@
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
 
-    
+@endsection
+
+@section('inline_script')
+@endsection    

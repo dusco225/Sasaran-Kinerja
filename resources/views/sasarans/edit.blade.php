@@ -1,7 +1,6 @@
-
-
-
-
+@extends('template.dashboard')
+@section('title', 'Edit')
+@section('content')
 <form action="{{ route('sasarans.update', $sasaran->id) }}" method="post">
     @csrf
     @method('PUT')
@@ -11,5 +10,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
+@endsection
 
+@section('inline_script')
+@endsection
     

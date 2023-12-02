@@ -1,6 +1,6 @@
 
 @extends('template.dashboard')
-@section('title', 'Books')
+@section('title', 'kinerja')
 @section('content')
 
 
