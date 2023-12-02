@@ -2,9 +2,6 @@
 @extends('template.dashboard')
 @section('title', 'kinerja')
 @section('content')
-
-
-
     <div class="content">
         <h1>Indikator Kinerja<br></h1>
         <a href="{{ route('kinerjas.create') }}" class="btn btn-primary mb-3 mt-2">Tambah Data</a>
@@ -22,6 +19,7 @@
 
                 @foreach ($kinerjas as $kinerja)
                     <tr>
+                        <option value="{{ $kinerja->id }}">{{ $kinerja->sasaran }}</option>
                         <td>{{ $no++ }}</td>
                         <td>{{ $kinerja->sasaran }}</td>
                         <td>{{ $kinerja->indikator_kinerja }}</td>
