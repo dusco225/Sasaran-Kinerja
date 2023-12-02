@@ -10,7 +10,7 @@
             <tr>
                 <th scope="row">No</th>
                 <th scope="row">Sasaran</th>
-                <th scope="row">Indikator</th>
+                <th scope="row">Kinerja</th>
                 <th scope="row">Aksi</th>
             </tr>
         </thead>
@@ -19,10 +19,10 @@
 
                 @foreach ($kinerjas as $kinerja)
                     <tr>
-                        <option value="{{ $kinerja->id }}">{{ $kinerja->sasaran }}</option>
+                        
                         <td>{{ $no++ }}</td>
                         <td>{{ $kinerja->sasaran }}</td>
-                        <td>{{ $kinerja->indikator_kinerja }}</td>
+                        <td>{{ $kinerja->kinerja }}</td>
                         <td><a href="{{ route('kinerjas.edit', $kinerja->id) }}" class="btn btn-warning m-1">Edit</a>
                         <form action="{{ route('kinerjas.destroy', $kinerja->id) }}" method="post" style="display: inline">
                             @csrf

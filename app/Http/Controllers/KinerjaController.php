@@ -2,28 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ViewKinerja;
 use App\Models\kinerja;
+use App\Models\sasaran;
 use Illuminate\Http\Request;
 
 class KinerjaController extends Controller
 {
     public function index()
     {
-        $kinerjas = Kinerja::all();
+        $kinerjas = ViewKinerja::all();
         return view('kinerjas.index', compact('kinerjas'));
     }
 
     public function create()
     {
-        return view('kinerjas.create');
+        $sasarans = Sasaran::all();
+        return view('kinerjas.create', compact('sasarans'));
     }
 
    public function store(Request $request)
 {
     // Validasi input
     $request->validate([
-        'indikator_kinerja' => 'required',
-        'sasaran' => 'required',
+        'sasaran_id' => 'required',
+        'kinerja' => 'required',
     ]);
 
     // Simpan data ke database

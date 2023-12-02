@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kinerja extends Model
 {
-    protected $fillable = ['indikator_kinerja', 'sasaran'];
+    protected $fillable = ['sasaran_id', 'kinerja'];
 
     public function capaianKinerja()
     {
