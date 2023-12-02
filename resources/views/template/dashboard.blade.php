@@ -59,9 +59,9 @@
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-menu">
-      <a href="#">Menu 1</a>
-      <a href="#">Menu 2</a>
-      <a href="#">Menu 3</a>
+      <a href="{{ route('sasarans.index') }}">Sasaran</a>
+      <a href="{{ route('kinerjas.index') }}">Kinerja</a>
+      <!-- <a href="#">Menu 3</a> -->
       <!-- Tambahkan menu lain sesuai kebutuhan -->
     </div>
   </div>
@@ -87,8 +87,8 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           
         <!-- Tambahkan tautan pengguna di sebelah kanan -->
-        <div class="ml-auto mr-lg-2 navbar-menu">
-          <button class="btn btn-light text-white" onclick="toggleUserMenu()">
+        <div class="ml-auto mr-lg-2 navbar-menu ">
+          <button class="btn btn-light text-white" onclick="toggleUserMenu()" style="background-color: #004225; border:0;">
             <i class="fa fa-user"></i>&nbsp;joseph <i class="fa fa-angle-down"></i>
           </button>
           <div class="dropdown-menu dropdown-caret dropdown-menu-right dropdown-animated brc-primary-m3 py-1" id="userMenu" style="display: none;">
@@ -115,27 +115,18 @@
   @yield('inline_script')
 
   <!-- Tautan untuk Bootstrap JS (Pastikan Anda memasukkan jQuery dan Popper.js jika diperlukan) -->
-  <!-- Tautan untuk Bootstrap JS (Pastikan Anda memasukkan jQuery dan Popper.js jika diperlukan) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+zgbY9v9E69Jwii8cAPlktgz5F3cJLve+8EvoB1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+zgbY9v9E69Jwii8cAPlktgz5F3cJLve+8EvoB1" crossorigin="anonymous"></script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var userDropdown = document.getElementById('userDropdown');
-    userDropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-      var userMenu = document.getElementById('userDropdownMenu');
-      userMenu.classList.toggle('show');
-    });
-
-    document.addEventListener('click', function(event) {
-      var userMenu = document.getElementById('userDropdownMenu');
-      if (!userMenu.contains(event.target)) {
-        userMenu.classList.remove('show');
-      }
-    });
-  });
-</script>
-
+  <!-- Script untuk toggle sidebar dan menggeser konten -->
+  <script>
+    
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar');
+      var content = document.getElementById('content');
+      sidebar.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+  </script>
 </body>
 
 </html>
