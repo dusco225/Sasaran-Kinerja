@@ -9,12 +9,18 @@
 
   <!-- Masukkan CSS dan script lainnya -->
   <style>
-    .navbar-brand {
-      margin-right: auto;
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      height: 100%;
+      width: 250px;
+      background-color: #111;
+      transition: all 0.3s ease;
     }
 
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    .sidebar.active {
+      left: 0;
     }
 
     .sidebar-toggler {
@@ -26,17 +32,47 @@
       cursor: pointer;
       margin-right: 15px; /* Margin untuk tombol sidebar */
     }
+
+    .sidebar-menu {
+      padding-top: 60px; /* Atur jarak dari atas untuk menyertakan tombol toggler */
+    }
+
+    .sidebar-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Tambahkan margin pada konten saat sidebar aktif */
+    .content {
+      transition: margin-left 0.3s ease;
+    }
+
+    .content.active {
+      margin-left: 250px; /* Sesuaikan dengan lebar sidebar Anda */
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Bagian header -->
-  <div class="body-container m-0 p-0">
-    <nav class="navbar navbar-sm navbar-expand-lg navbar-fixed" style="background-color: #004225;">
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-menu">
+      <a href="#">Menu 1</a>
+      <a href="#">Menu 2</a>
+      <a href="#">Menu 3</a>
+      <!-- Tambahkan menu lain sesuai kebutuhan -->
+    </div>
+  </div>
+
+  <!-- Bagian konten -->
+  <div class="container-fluid body p-0 content" id="main-content">
+    <nav class="navbar navbar-sm navbar-expand-lg navbar-fixed" id="navbar" style="background-color: #004225;">
       <div class="container-fluid">
-        <button class="sidebar-toggler" onclick="toggleSidebar()">
-          <i class="fas fa-bars"></i> <!-- Ikon sidebar -->
+        <button class="sidebar-toggler bg-danger" onclick="toggleSidebar()">
+          <i class="fas fa-bars">bbb</i> <!-- Ikon sidebar -->
         </button>
 
         <a class="navbar-brand text-white" href="#">
@@ -50,13 +86,10 @@
         </div>
       </div>
     </nav>
-  </div>
-
-  <div class="container">
+    <div class="container content"  id="content" >
       @yield('content')
-
+    </div>
   </div>
-  
 
   <!-- Masukkan script lainnya jika diperlukan -->
   @yield('inline_script')
@@ -64,12 +97,13 @@
   <!-- Tautan untuk Bootstrap JS (Pastikan Anda memasukkan jQuery dan Popper.js jika diperlukan) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+zgbY9v9E69Jwii8cAPlktgz5F3cJLve+8EvoB1" crossorigin="anonymous"></script>
 
-  <!-- Script untuk toggle sidebar -->
+  <!-- Script untuk toggle sidebar dan menggeser konten -->
   <script>
     function toggleSidebar() {
-      // Ganti 'sidebar' dengan ID dari elemen sidebar Anda
       var sidebar = document.getElementById('sidebar');
+      var content = document.getElementById('content');
       sidebar.classList.toggle('active');
+      content.classList.toggle('active');
     }
   </script>
 </body>
