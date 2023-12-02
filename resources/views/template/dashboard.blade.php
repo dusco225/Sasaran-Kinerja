@@ -52,9 +52,11 @@
     </nav>
   </div>
 
-  <main>
-    @yield('content')
-  </main>
+  <div class="container">
+      @yield('content')
+
+  </div>
+  
 
   <!-- Masukkan script lainnya jika diperlukan -->
   @yield('inline_script')

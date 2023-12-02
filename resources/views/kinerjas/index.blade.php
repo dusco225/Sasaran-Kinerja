@@ -1,4 +1,8 @@
 
+@extends('template.dashboard')
+@section('title', 'Books')
+@section('content')
+
 
 
     <div class="content">
@@ -33,3 +37,7 @@
             </tbody>
         </table>
     </div>
+    @endsection
+
+    @section('inline_script')
+@endsection
