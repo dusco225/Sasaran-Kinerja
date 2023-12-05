@@ -16,10 +16,12 @@
 
 
 -- Dumping database structure for sasarandb
+DROP DATABASE IF EXISTS `sasarandb`;
 CREATE DATABASE IF NOT EXISTS `sasarandb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `sasarandb`;
 
 -- Dumping structure for table sasarandb.failed_jobs
+DROP TABLE IF EXISTS `failed_jobs`;
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -35,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 -- Dumping data for table sasarandb.failed_jobs: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.kinerjas
+DROP TABLE IF EXISTS `kinerjas`;
 CREATE TABLE IF NOT EXISTS `kinerjas` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `sasaran_id` int NOT NULL DEFAULT '0',
@@ -47,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `kinerjas` (
 -- Dumping data for table sasarandb.kinerjas: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.migrations
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -57,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 -- Dumping data for table sasarandb.migrations: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.password_reset_tokens
+DROP TABLE IF EXISTS `password_reset_tokens`;
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -67,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
 -- Dumping data for table sasarandb.password_reset_tokens: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.personal_access_tokens
+DROP TABLE IF EXISTS `personal_access_tokens`;
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -86,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
 -- Dumping data for table sasarandb.personal_access_tokens: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.sasarans
+DROP TABLE IF EXISTS `sasarans`;
 CREATE TABLE IF NOT EXISTS `sasarans` (
   `id` int NOT NULL AUTO_INCREMENT,
   `sasaran` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -97,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `sasarans` (
 -- Dumping data for table sasarandb.sasarans: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.targets
+DROP TABLE IF EXISTS `targets`;
 CREATE TABLE IF NOT EXISTS `targets` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `id_kinerja` int NOT NULL,
@@ -112,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
 -- Dumping data for table sasarandb.targets: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -128,6 +137,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table sasarandb.users: ~0 rows (approximately)
 
 -- Dumping structure for view sasarandb.vw_kinerja
+DROP VIEW IF EXISTS `vw_kinerja`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `vw_kinerja` (
 	`id` INT(10) UNSIGNED NOT NULL,
@@ -137,6 +147,7 @@ CREATE TABLE `vw_kinerja` (
 ) ENGINE=MyISAM;
 
 -- Dumping structure for view sasarandb.vw_kinerja
+DROP VIEW IF EXISTS `vw_kinerja`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `vw_kinerja`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_kinerja` AS select `kinerja`.`id` AS `id`,`kinerja`.`sasaran_id` AS `sasaran_id`,coalesce(`sasaran`.`sasaran`,`kinerja`.`sasaran_id`) AS `sasaran`,`kinerja`.`kinerja` AS `kinerja` from (`kinerjas` `kinerja` left join `sasarans` `sasaran` on((`kinerja`.`sasaran_id` = `sasaran`.`id`)));
