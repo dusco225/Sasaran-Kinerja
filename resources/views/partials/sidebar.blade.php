@@ -28,7 +28,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                Data
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -38,8 +38,15 @@
                   <p>Sasaran</p>
                 </a>
               </li>
+             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('sasarans.index') }}" class="nav-link">
+                  <p>Kinerja</p>
+                </a>
+              </li>
+             </ul>
 
-        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
