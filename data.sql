@@ -42,15 +42,18 @@ CREATE TABLE IF NOT EXISTS `kinerjas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.kinerjas: ~5 rows (approximately)
+<<<<<<< HEAD
+-- Dumping data for table sasarandb.kinerjas: ~4 rows (approximately)
 REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_at`) VALUES
-	(7, 1, 'akbar', '2023-12-06 02:33:25', NULL),
-	(8, 6, 'ikbal', '2023-12-05 19:33:37', '2023-12-05 19:33:37'),
-	(9, 6, 'susu', '2023-12-05 19:33:48', '2023-12-05 19:33:48'),
-	(10, 6, 'ziu', '2023-12-05 20:21:04', '2023-12-05 20:21:04'),
-	(11, 6, 'zuuuuuuuuuuuuuu', '2023-12-05 20:21:12', '2023-12-05 20:21:12');
+	(7, 6, 'jasmine', '2023-12-04 20:30:29', '2023-12-04 20:30:29'),
+	(8, 6, 'aufa', '2023-12-04 20:30:35', '2023-12-04 20:30:35'),
+	(9, 5, 'aufa', '2023-12-04 23:59:23', '2023-12-04 23:59:23'),
+	(10, 5, 'jasmine', '2023-12-05 00:00:10', '2023-12-05 00:00:10');
+=======
+-- Dumping data for table sasarandb.kinerjas: ~0 rows (approximately)
+>>>>>>> 741f1d6af830a30baead9f10cfe58e5c51236ae8
 
 -- Dumping structure for table sasarandb.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -60,7 +63,19 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+<<<<<<< HEAD
+-- Dumping data for table sasarandb.migrations: ~7 rows (approximately)
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(1, '2014_10_12_000000_create_users_table', 1),
+	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+	(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+	(5, '2023_11_26_101053_create_kinerjas_table', 1),
+	(6, '2023_11_26_102754_create_targets_table', 1),
+	(7, '2023_11_27_063109_create_sasarans_table', 1);
+=======
 -- Dumping data for table sasarandb.migrations: ~0 rows (approximately)
+>>>>>>> 741f1d6af830a30baead9f10cfe58e5c51236ae8
 
 -- Dumping structure for table sasarandb.password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
@@ -100,9 +115,14 @@ CREATE TABLE IF NOT EXISTS `sasarans` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.sasarans: ~1 rows (approximately)
+<<<<<<< HEAD
+-- Dumping data for table sasarandb.sasarans: ~2 rows (approximately)
 REPLACE INTO `sasarans` (`id`, `sasaran`, `created_at`, `updated_at`) VALUES
-	(6, 'dirs', '2023-12-06 02:33:12', '2023-12-05 19:59:07');
+	(5, 'jajsadads', '2023-12-04 00:47:17', '2023-12-04 00:47:17'),
+	(6, 'sasaran sipa digunakan', '2023-12-04 20:30:19', '2023-12-04 20:30:19');
+=======
+-- Dumping data for table sasarandb.sasarans: ~0 rows (approximately)
+>>>>>>> 741f1d6af830a30baead9f10cfe58e5c51236ae8
 
 -- Dumping structure for table sasarandb.targets
 CREATE TABLE IF NOT EXISTS `targets` (
