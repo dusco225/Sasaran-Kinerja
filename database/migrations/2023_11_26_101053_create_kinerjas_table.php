@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kinerjas', function (Blueprint $table) {
             $table->id();
             $table->text('sasaran');
-            $table->text('indikator_kinerja');
+            $table->text('kinerja');
             // $table->foreignId('sasaran_id')->constrained();
             $table->timestamps();
         });

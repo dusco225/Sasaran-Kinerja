@@ -42,11 +42,11 @@ class KinerjaController extends Controller
         return view('kinerjas.edit', compact('kinerja'));
     }
 
-    public function update(Request $request, Kinerja $kinerja)
+    public function update(Request $request, Kinerja $kinerja,)
     {
         // Validasi input
         $request->validate([
-            'indikator_kinerja' => 'required',
+            'kinerja' => 'required',
             'sasaran' => 'required',
         ]);
 
