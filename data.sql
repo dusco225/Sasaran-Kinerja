@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.failed_jobs: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.kinerjas
 CREATE TABLE IF NOT EXISTS `kinerjas` (
@@ -42,9 +42,14 @@ CREATE TABLE IF NOT EXISTS `kinerjas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.kinerjas: ~4 rows (approximately)
+REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_at`) VALUES
+	(7, 6, 'jasmine', '2023-12-04 20:30:29', '2023-12-04 20:30:29'),
+	(8, 6, 'aufa', '2023-12-04 20:30:35', '2023-12-04 20:30:35'),
+	(9, 5, 'aufa', '2023-12-04 23:59:23', '2023-12-04 23:59:23'),
+	(10, 5, 'jasmine', '2023-12-05 00:00:10', '2023-12-05 00:00:10');
 
 -- Dumping structure for table sasarandb.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -54,7 +59,15 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.migrations: ~7 rows (approximately)
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(1, '2014_10_12_000000_create_users_table', 1),
+	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+	(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+	(5, '2023_11_26_101053_create_kinerjas_table', 1),
+	(6, '2023_11_26_102754_create_targets_table', 1),
+	(7, '2023_11_27_063109_create_sasarans_table', 1);
 
 -- Dumping structure for table sasarandb.password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
@@ -64,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.password_reset_tokens: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.personal_access_tokens
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
@@ -83,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.personal_access_tokens: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.sasarans
 CREATE TABLE IF NOT EXISTS `sasarans` (
@@ -92,9 +105,12 @@ CREATE TABLE IF NOT EXISTS `sasarans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.sasarans: ~2 rows (approximately)
+REPLACE INTO `sasarans` (`id`, `sasaran`, `created_at`, `updated_at`) VALUES
+	(5, 'jajsadads', '2023-12-04 00:47:17', '2023-12-04 00:47:17'),
+	(6, 'sasaran sipa digunakan', '2023-12-04 20:30:19', '2023-12-04 20:30:19');
 
 -- Dumping structure for table sasarandb.targets
 CREATE TABLE IF NOT EXISTS `targets` (
@@ -109,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.targets: ~0 rows (approximately)
 
 -- Dumping structure for table sasarandb.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -125,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table sasarandb.users: ~0 rows (approximately)
 
 -- Dumping structure for view sasarandb.vw_kinerja
 -- Creating temporary table to overcome VIEW dependency errors
