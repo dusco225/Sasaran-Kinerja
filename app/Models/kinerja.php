@@ -9,7 +9,7 @@ class Kinerja extends Model
 {
     protected $fillable = ['sasaran_id', 'kinerja'];
 
-    public function capaianKinerja()
+    public function indikator()
     {
         return $this->belongsTo(KinerjaController::class);
     }
