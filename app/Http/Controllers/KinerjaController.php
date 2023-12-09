@@ -12,7 +12,10 @@ class KinerjaController extends Controller
     public function index()
     {
         $kinerjas = ViewKinerja::all();
+        $sasarans = Sasaran::all();
+        // $kinerjas = ViewKinerja::all();
         return view('kinerjas.index', compact('kinerjas'));
+        return view('kinerjas.index', compact('sasarans'));
     }
 
     public function create()
