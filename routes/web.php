@@ -21,7 +21,10 @@ Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.ind
 Route::resource('sasarans',SasaranController::class);
 Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index');
 
+Route::resource('sasarans',SasaranController::class);
+Route::get('/', [SasaranController::class, 'index'])->name('sasarans.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
