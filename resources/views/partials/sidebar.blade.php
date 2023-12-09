@@ -34,14 +34,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('sasarans.index') }}" class="nav-link">
+                <a href="{{ route('sasarans.index') }}" class="nav-link {{ Request::is('sasarans') ? 'active' : '' }}">
                   <p>Sasaran</p>
                 </a>
               </li>
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('kinerjas.index') }}" class="nav-link">
+                <a href="{{ route('kinerjas.index') }}" class="nav-link {{ Request::is('kinerjas') ? 'active' : '' }}">
                   <p>Kinerja</p>
                 </a>
               </li>
