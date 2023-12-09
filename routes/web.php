@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//
 
 Route::resource('kinerjas',KinerjaController::class);
 Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.index');
