@@ -41,12 +41,14 @@
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('sasarans.index') }}" class="nav-link">
+                <a href="{{ route('kinerjas.index') }}" class="nav-link">
                   <p>Kinerja</p>
                 </a>
               </li>
              </ul>
-
+             @auth    
+             <div><a href="{{ route('logout') }}" class="btn btn-sm btn-secondary">Logout >></a></div>
+             @endauth
       </nav>
       <!-- /.sidebar-menu -->
     </div>

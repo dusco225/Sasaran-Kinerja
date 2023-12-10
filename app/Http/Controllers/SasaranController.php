@@ -15,6 +15,12 @@ class SasaranController extends Controller
         return view('sasarans.index', compact('sasarans'));
     }
 
+    public function admin()
+    {
+        $sasarans = Sasaran::all();
+        return view('sasarans.admin', compact('sasarans'));
+    }
+
     public function create()
     {
         return view('sasarans.create');
