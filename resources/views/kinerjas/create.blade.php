@@ -48,15 +48,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
            <form action="{{ route('kinerjas.store') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <select name="sasaran_id" id="" class="form-control">
-                        @foreach ($sasarans as $sasaran)
+                  <label for="sasaran">Sasaran</label>
+                    <select name="sasaran" id="" class="form-control">
+                      <option value="">--sasaran--</option>
+                        {{-- @foreach ($sasarans as $sasaran)
                         <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-                            @endforeach
+                            @endforeach --}}
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="sasaran">Indikator Kinerja</label>
-                    <input type="text" name="kinerja" class="form-control mb-3" required>
+                    <label for="kinerja">Indikator Kinerja</label>
+                  <select name="kinerja" id="" class="form-control">
+                    <option value="">--kinerja--</option>
+                  </select>
+
+                    {{-- <input type="text" name="kinerja" class="form-control mb-3" required> --}}
                 </div>
                 <div class="form-group">
                    <button type="submit" class="btn btn-primary">Simpan</button>
@@ -88,7 +94,52 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
+<script>
+  $(`form [name=sasaran]`).on('click', function(){
+    $(this).empty()
+   $(this).append(`@foreach ($sasarans as $sasaran)
+                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+                            @endforeach`) 
+    
+});
+$('form [name=sasaran]').on('change', function(){
+    var nilai = $(this).val();
 
+    // Menggunakan AJAX untuk mengirim data ke server
+    var url = `{{ route('kinerjas.create') }}`;
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: { nilai: nilai },        
+        success: function(data) {
+           if(data.data && data.data.length > 0){
+            for(var i=0; i< data.data.length; i++){
+              var pilihan = 
+            }
+           } 
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+});
+
+            
+            $(`form [name=kinerja]`).on('click', function(){
+              
+              kinerja();
+            });
+function kinerja(){
+  console.log('masuk om')
+  $(`form [name=kinerja]`).empty()
+   $(`form [name=kinerja]`).append(`@foreach ($kinerjas as $kinerja)
+                        <option value="{{ $kinerja['sasaran_id'] }}">{{ $kinerja['kinerja'] }}</option>        
+                            @endforeach`) 
+
+
+}
+</script>
 </body>
 </html>
 

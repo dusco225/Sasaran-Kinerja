@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('kinerjas',KinerjaController::class);
 Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.index');
+// Route::post('/kinerjas', [KinerjaController::class, 'create'])->name('kinerjas.create');
 
 Route::resource('sasarans',SasaranController::class);
 Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index');

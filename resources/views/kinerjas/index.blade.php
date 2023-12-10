@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <tr>
                   <th>No</th>
                   <th>Sasaran</th>
-                  <th>Kinerja</th>
+                  <th>Indikator Kinerja</th>
                   <th>Aksi</th>
               </tr>
 

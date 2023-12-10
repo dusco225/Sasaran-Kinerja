@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
            <form action="{{ route('sasarans.store') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <input type="text" name="sasaran" class="form-control mb-3" placeholder="Sasaran" required>
+                    <input type="text" name="sasaran" class="form-control mb-3" placeholder="Sasaran" autocomplete="off" autofocus required>
                 </div>
                 <div class="form-group">
                    <button type="submit" class="btn btn-primary">Simpan</button>
