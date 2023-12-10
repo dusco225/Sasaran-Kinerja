@@ -19,16 +19,17 @@ class KinerjaController extends Controller
         $nilai = request()->input('nilai');
     
         if ($nilai) {
-            $kinerjas = [
-                ['sasaran_id' => '1', 'kinerja' => 'susu jepang'],
-            ];
-            $sasarans = Sasaran::all();
-        } else {
             $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
+            return response()->json(['data' => $kinerjas]);
+
+        } else {
+            // $kinerjas = [
+            //     ['sasaran_id' => '1', 'kinerja' => 'susu jepang'],
+            // ];
             $sasarans = Sasaran::all();
         }
     
-        return view('kinerjas.create', compact('sasarans', 'kinerjas'));
+        return view('kinerjas.create', compact('sasarans'));
     }
     
 
