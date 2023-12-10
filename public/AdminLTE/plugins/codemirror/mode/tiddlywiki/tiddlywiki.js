@@ -46,7 +46,7 @@ CodeMirror.defineMode("tiddlywiki", function () {
       reHR = /^\-\-\-\-+$/,                                 // <hr>
       reWikiCommentStart = /^\/\*\*\*$/,            // /***
       reWikiCommentStop = /^\*\*\*\/$/,             // ***/
-      reBlockQuote = /^template.dashboard$/,
+      reBlockQuote = /^<<<$/,
 
       reJsCodeStart = /^\/\/\{\{\{$/,                       // //{{{ js block start
       reJsCodeStop = /^\/\/\}\}\}$/,                        // //}}} js stop

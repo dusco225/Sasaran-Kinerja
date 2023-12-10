@@ -3,6 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
+<?die?>
 <html lang="en">
 <head>
  @include('Partials.head')
@@ -57,12 +58,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="kinerja">Indikator Kinerja</label>
-                  <select name="kinerja" id="" class="form-control">
-                    <option value="">--kinerja--</option>
+                    <label for="format">Format</label>
+                  <select name="format" id="" class="form-control">
+                    <option value="">--format--</option>
+                    <option value="pilih">Pilih Indikator</option>
+                    <option value="tambah">Buat Indikator</option>
                   </select>
 
                     {{-- <input type="text" name="kinerja" class="form-control mb-3" required> --}}
+                </div>
+                <div class="form-group" id="format">
+                    
+
                 </div>
                 <div class="form-group">
                    <button type="submit" class="btn btn-primary">Simpan</button>
@@ -95,50 +102,150 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
 <script>
-  $(`form [name=sasaran]`).on('click', function(){
-    $(this).empty()
-   $(this).append(`@foreach ($sasarans as $sasaran)
-                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-                            @endforeach`) 
-    
-});
-$('form [name=sasaran]').on('change', function(){
+  $('form [name=format]').on('change', function () {
     var nilai = $(this).val();
+    var tempat = $('#format');
 
-    // Menggunakan AJAX untuk mengirim data ke server
-    var url = `{{ route('kinerjas.create') }}`;
+    tempat.empty();
 
-    $.ajax({
+    switch (nilai) {
+        case '':
+            format = '';
+            break;
+        case 'pilih':
+            format = `<label for="kinerja">Indikator Kinerja</label>
+                      <select name="kinerja" id="pilih" class="form-control">
+                        <option value="">--kinerja--</option>
+                      </select>`;
+            break;
+        case 'tambah':
+            format = `<label for="kinerja">Indikator Kinerja</label>
+                      <input type="text" name="kinerja" class="form-control mb-3" required>`;
+            break;
+        default:
+            break;
+    }
+
+    tempat.append(format);
+});
+
+// $('form [name=sasaran]').on('click', function(){
+//   $(this).empty();
+//     $(this).append(`@foreach ($sasarans as $sasaran)
+//                         <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+//                     @endforeach`);
+// });
+
+// $('#pilih').on('click', function(){
+  // console.log('masuuk om');
+  //   var nilai = $(this).val();
+  //   $(this).empty();
+    // Lakukan sesuatu dengan nilai
+// });
+
+  $('form').on('click', '[name=sasaran]', function(){
+      // Lakukan sesuatu dengan nilai sasaran
+      console.log('masuk oom')
+      $(this).empty();
+      $(this).append(`@foreach ($sasarans as $sasaran)
+                          <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+                      @endforeach`);
+  });
+  $('form').on('change', '[name=sasaran]', function(){
+    var hasil = $(this).val();
+    $(this).val(hasil);
+    console.log($(this).val());
+    kinerja()
+  });
+
+  $(`form [name=kinerja]`).on(`click`, function(){
+console.log('susu jepang')
+  });
+
+  // $('form').on('click', '#pilih', function(){
+  //     // Lakukan sesuatu dengan nilai kinerja
+  //   //  kinerja();
+  //   //  var nilai = $('form [name=sasaran]').val()
+  //   //   console.log('nilaunya->'+nilai);
+  //     url = `{{ route('kinerjas.store') }}`;
+  //     var selectedValue = $(`form [name=sasaran]`).val()
+  //     console.log('masuuk om' + selectedValue);
+  //     // var nilai = $(this).val();
+  //     $(this).empty();
+      
+  //       $.ajax({
+  //         type: 'GET',
+  //         url: url,
+  //         // data: { nilai: formElement.find('[name=sasaran]').val() },  // Gunakan formElement untuk merujuk ke elemen form        
+  //         data: { nilai: $(`form [name=sasaran]`).val() },  // Gunakan formElement untuk merujuk ke elemen form        
+  //         success: function(data) {
+  //           $(`form [name=kinerja]`).empty()
+      
+  //             if (data.data && data.data.length > 0) {
+  //                 for (var i = 0; i < data.data.length; i++) {
+  //                     var item = data.data[i];
+  //                     $(this).append(`<option value='${item.sasaran_id}'>${item.kinerja}</option>`)
+      
+      
+  //                     // Menampilkan informasi dalam konsol
+  //                     console.log('Ini data ke-' + (i + 1));
+  //                     console.log('Sasaran ID: ' + item.sasaran_id);
+  //                     console.log('Kinerja: ' + item.kinerja);
+  //                     console.log('------------------------------');
+  //                 }
+  //             } else {
+  //                 console.log('Tidak ada data.');
+  //             }
+  //         },
+  //         error: function(error) {
+  //             console.error(error);
+  //         }
+  //     });
+  // });
+// $('form #pilih').on('click', function() {
+  // Lakukan sesuatu dengan ni
+//      kinerja();
+// });
+
+function kinerja(){
+  var selectedValue = $('form [name=sasaran]').val()
+    console.log(selectedValue);
+    url = `{{ route('kinerjas.store') }}`;
+    console.log('masuuk om');
+    $('form [name=sasaran]').empty();
+    
+      $.ajax({
         type: 'GET',
         url: url,
-        data: { nilai: nilai },        
+        data: { nilai: selectedValue },        
         success: function(data) {
-           if(data.data && data.data.length > 0){
-            for(var i=0; i< data.data.length; i++){
-              var pilihan = 
+          $(`form [name=kinerja]`).empty()
+    
+            if (data.data && data.data.length > 0) {
+                for (var i = 0; i < data.data.length; i++) {
+                    var item = data.data[i];
+                    $(this).append(`<option value='${item.sasaran_id}'>${item.kinerja}</option>`)
+    
+    
+                    // Menampilkan informasi dalam konsol
+                    console.log('Ini data ke-' + (i + 1));
+                    console.log('Sasaran ID: ' + item.sasaran_id);
+                    console.log('Kinerja: ' + item.kinerja);
+                    console.log('------------------------------');
+                }
+            } else {
+                console.log('Tidak ada data.');
             }
-           } 
         },
         error: function(error) {
             console.error(error);
         }
     });
-});
+}
+
 
             
-            $(`form [name=kinerja]`).on('click', function(){
-              
-              kinerja();
-            });
-function kinerja(){
-  console.log('masuk om')
-  $(`form [name=kinerja]`).empty()
-   $(`form [name=kinerja]`).append(`@foreach ($kinerjas as $kinerja)
-                        <option value="{{ $kinerja['sasaran_id'] }}">{{ $kinerja['kinerja'] }}</option>        
-                            @endforeach`) 
-
-
-}
+            
 </script>
 </body>
 </html>
