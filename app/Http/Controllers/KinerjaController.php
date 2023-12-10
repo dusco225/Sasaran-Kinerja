@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ViewKinerja;
-use App\Models\kinerja;
+use App\Models\Kinerja;
 use App\Models\sasaran;
 use Illuminate\Http\Request;
 
@@ -17,12 +17,23 @@ class KinerjaController extends Controller
         return view('kinerjas.index', compact('kinerjas'));
         return view('kinerjas.index', compact('sasarans'));
     }
-
     public function create()
     {
-        $sasarans = Sasaran::all();
-        return view('kinerjas.create', compact('sasarans'));
+        $nilai = request()->input('nilai');
+    
+        if ($nilai) {
+            $kinerjas = [
+                ['sasaran_id' => '1', 'kinerja' => 'susu jepang'],
+            ];
+            $sasarans = Sasaran::all();
+        } else {
+            $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
+            $sasarans = Sasaran::all();
+        }
+    
+        return view('kinerjas.create', compact('sasarans', 'kinerjas'));
     }
+    
 
    public function store(Request $request)
 {
