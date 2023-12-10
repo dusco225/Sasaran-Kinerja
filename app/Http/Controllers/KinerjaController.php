@@ -16,6 +16,7 @@ class KinerjaController extends Controller
     }
     public function create()
     {
+        // $nilai = 17;
         $nilai = request()->input('nilai');
     
         if ($nilai) {
