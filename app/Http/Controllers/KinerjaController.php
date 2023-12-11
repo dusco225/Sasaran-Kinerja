@@ -12,7 +12,7 @@ class KinerjaController extends Controller
     public function index()
     {
         $kinerjas = ViewKinerja::all();
-        return view('kinerjas.index', compact('kinerjas'));
+        return view ('kinerjas.index', compact('kinerjas'));
     }
     public function create()
     {
@@ -22,15 +22,16 @@ class KinerjaController extends Controller
         if ($nilai) {
             $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
             return response()->json(['data' => $kinerjas]);
+            // $sasarans = Sasaran::all();
+            // return view('kinerjas.create', compact('sasarans'));
 
         } else {
-            // $kinerjas = [
-            //     ['sasaran_id' => '1', 'kinerja' => 'susu jepang'],
-            // ];
             $sasarans = Sasaran::all();
+            return view('kinerjas.create', compact('sasarans'));
+
         }
+        
     
-        return view('kinerjas.create', compact('sasarans'));
     }
     
 
@@ -38,7 +39,7 @@ class KinerjaController extends Controller
 {
     // Validasi input
     $request->validate([
-        'sasaran_id' => 'required',
+        'sasaran' => 'required',
         'kinerja' => 'required',
     ]);
 

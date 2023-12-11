@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<?die?>
+
 <html lang="en">
 <head>
  @include('Partials.head')
@@ -51,10 +51,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="form-group">
                   <label for="sasaran">Sasaran</label>
                     <select name="sasaran" id="" class="form-control">
-                      <option value="">--sasaran--</option>
-                        {{-- @foreach ($sasarans as $sasaran)
-                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-                            @endforeach --}}
+                      <span class="pilhihn">
+                        <option value="">--sasaran--</option>
+
+                      </span>
+                      <!-- <div class="selectSasaran bg-danger">
+                      </div> -->
+                  
                     </select>
                 </div>
                 <div class="form-group">
@@ -102,7 +105,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
 <script>
-  $('form [name=format]').on('change', function () {
+  $(document).ready(function(){
+    console.log('titit')
+    $('form [name=format]').on('change', function () {
     var nilai = $(this).val();
     var tempat = $('#format');
 
@@ -114,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             break;
         case 'pilih':
             format = `<label for="kinerja">Indikator Kinerja</label>
-                      <select name="kinerja" id="pilih" class="form-control">
+                      <select name="kinerja" id="pilih" class="form-control" onclick="taik()">
                         <option value="">--kinerja--</option>
                       </select>`;
             break;
@@ -128,6 +133,83 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     tempat.append(format);
 });
+
+$('form').on('click', '[name=sasaran]', function(){
+      // Lakukan sesuatu dengan nilai sasaran
+      if ($(this).val() === '') {
+    console.log('masuk oom');
+    $(this).empty();
+    $(this).html(`
+        @foreach ($sasarans as $sasaran)
+            <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+        @endforeach
+    `);
+}
+      
+    
+  });
+  $('form').on('change', '[name=sasaran]', function() {
+  
+    console.log('henshin');
+    $('#pilih').empty()
+    $('#pilih').append('<option value="">--kinerja--</option>')
+  
+});
+
+  // $('form').on('change', '[name=sasaran]', function(){
+  //   var hasil = $(this).val();
+  //   $(this).val(hasil);
+  //   console.log($(this).val()+'suuuu');
+  //   kinerja()
+  // });
+
+  $(`form [name=kinerja]`).on(`click`, function(){
+console.log('susu jepang')
+  });
+  
+  // --------------------
+});
+
+function taik(){
+  console.log('taik')
+  var selectedValue = $('form [name=sasaran]').val()
+    console.log(selectedValue);
+    url = `{{ route('kinerjas.create') }}`;
+    console.log('masuuk om');
+    if($('#pilih').val() == ''){
+
+      $('form [name=kinerja]').empty();
+      $.ajax({
+      type: 'GET',
+      url: url,
+      data: { nilai: selectedValue },        
+      success: function(data) {
+          console.log('ini datanya:' + data.data);
+          console.log('ini datanya:' + data);
+          $(`form [name=kinerja]`).empty();
+  
+          if (data.data && data.data.length > 0) {
+              for (var i = 0; i < data.data.length; i++) {
+                  var item = data.data[i];
+                  $('form [name=kinerja]').append(`<option value='${item.id}'>${item.kinerja}</option>`);
+      
+                  // Menampilkan informasi dalam konsol
+                  console.log('Ini data ke-' + (i + 1));
+                  console.log('Sasaran ID: ' + item.sasaran_id);
+                  console.log('Kinerja: ' + item.kinerja);
+                  console.log('------------------------------');
+              }
+          } else {
+              console.log('Tidak ada data.');
+          }
+      },
+      error: function(error) {
+          console.error(error);
+      }
+  });
+    }
+
+}
 
 // $('form [name=sasaran]').on('click', function(){
 //   $(this).empty();
@@ -143,24 +225,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     // Lakukan sesuatu dengan nilai
 // });
 
-  $('form').on('click', '[name=sasaran]', function(){
-      // Lakukan sesuatu dengan nilai sasaran
-      console.log('masuk oom')
-      $(this).empty();
-      $(this).append(`@foreach ($sasarans as $sasaran)
-                          <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-                      @endforeach`);
-  });
-  $('form').on('change', '[name=sasaran]', function(){
-    var hasil = $(this).val();
-    $(this).val(hasil);
-    console.log($(this).val());
-    kinerja()
-  });
-
-  $(`form [name=kinerja]`).on(`click`, function(){
-console.log('susu jepang')
-  });
 
   // $('form').on('click', '#pilih', function(){
   //     // Lakukan sesuatu dengan nilai kinerja
@@ -208,39 +272,7 @@ console.log('susu jepang')
 // });
 
 function kinerja(){
-  var selectedValue = $('form [name=sasaran]').val()
-    console.log(selectedValue);
-    url = `{{ route('kinerjas.store') }}`;
-    console.log('masuuk om');
-    $('form [name=sasaran]').empty();
-    
-      $.ajax({
-        type: 'GET',
-        url: url,
-        data: { nilai: selectedValue },        
-        success: function(data) {
-          $(`form [name=kinerja]`).empty()
-    
-            if (data.data && data.data.length > 0) {
-                for (var i = 0; i < data.data.length; i++) {
-                    var item = data.data[i];
-                    $(this).append(`<option value='${item.sasaran_id}'>${item.kinerja}</option>`)
-    
-    
-                    // Menampilkan informasi dalam konsol
-                    console.log('Ini data ke-' + (i + 1));
-                    console.log('Sasaran ID: ' + item.sasaran_id);
-                    console.log('Kinerja: ' + item.kinerja);
-                    console.log('------------------------------');
-                }
-            } else {
-                console.log('Tidak ada data.');
-            }
-        },
-        error: function(error) {
-            console.error(error);
-        }
-    });
+  
 }
 
 
