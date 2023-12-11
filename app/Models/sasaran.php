@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sasaran extends Model
+
+class Sasaran extends Model
 {
     protected $fillable = ['sasaran'];
 
-    public function sasaran()
+    public function kinerjas()
     {
-        return $this->belongsTo(SasaranController::class);
+        return $this->hasMany(Kinerja::class);
     }
 }

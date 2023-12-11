@@ -46,6 +46,13 @@
                 </a>
               </li>
              </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('targets.index') }}" class="nav-link {{ Request::is('targets') ? 'active' : '' }}">
+                  <p>Target</p>
+                </a>
+              </li>
+             </ul>
 
       </nav>
       <!-- /.sidebar-menu -->

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('kinerjas', function (Blueprint $table) {
             $table->id();
-            $table->text('sasaran');
+            $table->integer('sasaran_id');
             $table->text('kinerja');
-            // $table->foreignId('sasaran_id')->constrained();
             $table->timestamps();
         });
     }

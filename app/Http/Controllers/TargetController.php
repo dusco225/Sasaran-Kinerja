@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kinerja;
+use App\Models\Sasaran;
 use App\Models\target;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,8 @@ class TargetController extends Controller
      */
     public function index()
     {
-        //
+        $targets = Target::all();
+        return view('targets.index', compact('targets'));
     }
 
     /**
@@ -20,7 +23,9 @@ class TargetController extends Controller
      */
     public function create()
     {
-        //
+        $sasarans = Sasaran::all();
+        $kinerjas = Kinerja::all();
+        return view('targets.create', compact('sasarans','kinerjas'));
     }
 
     /**
@@ -28,7 +33,20 @@ class TargetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sasaran_id' => 'required',
+            'kinerja_id' => 'required',
+            'tahunan' => 'nullable',
+            'I' => 'nullable',
+            'II' => 'nullable',
+            'III' => 'nullable',
+            'IV' => 'nullable',
+        ]);
+
+        Target::create($request->all());
+
+        return redirect()->route('targets.index')
+            ->with('success', 'Data Kinerja berhasil ditambahkan!');
     }
 
     /**
@@ -36,7 +54,7 @@ class TargetController extends Controller
      */
     public function show(target $target)
     {
-        //
+        
     }
 
     /**
@@ -44,7 +62,9 @@ class TargetController extends Controller
      */
     public function edit(target $target)
     {
-        //
+        $sasarans = Sasaran::all();
+        $kinerjas = Kinerja::all();   
+        return view('targets.edit', compact('target','sasarans','kinerjas'));
     }
 
     /**
@@ -52,7 +72,20 @@ class TargetController extends Controller
      */
     public function update(Request $request, target $target)
     {
-        //
+        $request->validate([
+            'sasaran_id' => 'required',
+            'kinerja_id' => 'required',
+            'tahunan' => 'nullable',
+            'I' => 'nullable',
+            'II' => 'nullable',
+            'III' => 'nullable',
+            'IV' => 'nullable',
+        ]);
+
+        $target->update($request->all());
+
+        return redirect()->route('targets.index')
+        ->with('success', 'Data Target berhasil diperbarui! ');
     }
 
     /**
@@ -60,6 +93,10 @@ class TargetController extends Controller
      */
     public function destroy(target $target)
     {
-        //
+        $target->delete();
+
+        return redirect()->route('targets.index')
+            ->with('success', 'Data Target berhasil dihapus!');
     }
+    
 }

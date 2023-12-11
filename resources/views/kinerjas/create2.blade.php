@@ -3,7 +3,6 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-
 <html lang="en">
 <head>
  @include('Partials.head')
@@ -61,18 +60,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="format">Format</label>
-                  <select name="format" id="" class="form-control">
-                    <option value="">--format--</option>
-                    <option value="pilih">Pilih Indikator</option>
-                    <option value="tambah">Buat Indikator</option>
+                    <label for="kinerja">Indikator Kinerja</label>
+                  <select name="kinerja" id="" class="form-control">
+                    <option value="">--kinerja--</option>
                   </select>
 
                     {{-- <input type="text" name="kinerja" class="form-control mb-3" required> --}}
-                </div>
-                <div class="form-group" id="format">
-                    
-
                 </div>
                 <div class="form-group">
                    <button type="submit" class="btn btn-primary">Simpan</button>
@@ -105,109 +98,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
 <script>
-  $(document).ready(function(){
-   
-    $('form [name=format]').on('change', function () {
+  $(`form [name=sasaran]`).on('click', function(){
+    $(this).empty()
+   $(this).append(`@foreach ($sasarans as $sasaran)
+                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+                            @endforeach`) 
+    
+});
+$('form [name=sasaran]').on('change', function(){
     var nilai = $(this).val();
-    var tempat = $('#format');
 
-    tempat.empty();
+    // Menggunakan AJAX untuk mengirim data ke server
+    var url = `{{ route('kinerjas.create') }}`;
+    $.ajax({
+    type: 'GET',
+    url: url,
+    data: { nilai: nilai },        
+    success: function(data) {
+      $(`form [name=kinerja]`).empty()
 
-    switch (nilai) {
-        case '':
-            format = '';
-            break;
-        case 'pilih':
-            format = `<label for="kinerja">Indikator Kinerja</label>
-                      <select name="kinerja" id="pilih" class="form-control" onclick="taik()">
-                        <option value="">--kinerja--</option>
-                      </select>`;
-            break;
-        case 'tambah':
-            format = `<label for="kinerja">Indikator Kinerja</label>
-                      <input type="text" name="kinerja" class="form-control mb-3" required>`;
-            break;
-        default:
-            break;
+        if (data.data && data.data.length > 0) {
+            for (var i = 0; i < data.data.length; i++) {
+                var item = data.data[i];
+                $(`form [name=kinerja]`).append(`<option value='${item.sasaran_id}'>${item.kinerja}</option>`)
+
+
+                // Menampilkan informasi dalam konsol
+                console.log('Ini data ke-' + (i + 1));
+                console.log('Sasaran ID: ' + item.sasaran_id);
+                console.log('Kinerja: ' + item.kinerja);
+                console.log('------------------------------');
+            }
+        } else {
+            console.log('Tidak ada data.');
+        }
+    },
+    error: function(error) {
+        console.error(error);
     }
-
-    tempat.append(format);
 });
 
-$('form').on('click', '[name=sasaran]', function(){
-      // Lakukan sesuatu dengan nilai sasaran
-      if ($(this).val() === '') {
-    console.log('masuk oom');
-    $(this).empty();
-    $(this).html(`
-        @foreach ($sasarans as $sasaran)
-            <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-        @endforeach
-    `);
-}
-      
-    
-  });
-  $('form').on('change', '[name=sasaran]', function() {
-  
-    
-    $('#pilih').empty()
-    $('#pilih').append('<option value="">--kinerja--</option>')
-  
 });
-
-
-
-  $(`form [name=kinerja]`).on(`click`, function(){
-
-  });
-  
-  // --------------------
-});
-
-function taik(){
-  console.log('taik')
-  var selectedValue = $('form [name=sasaran]').val()
-    console.log(selectedValue);
-    url = `{{ route('kinerjas.create') }}`;
-    console.log('masuuk om');
-    if($('#pilih').val() == ''){
-
-      $('form [name=kinerja]').empty();
-      $.ajax({
-      type: 'GET',
-      url: url,
-      data: { nilai: selectedValue },        
-      success: function(data) {
-          console.log('ini datanya:' + data.data);
-          console.log('ini datanya:' + data);
-          $(`form [name=kinerja]`).empty();
-  
-          if (data.data && data.data.length > 0) {
-              for (var i = 0; i < data.data.length; i++) {
-                  var item = data.data[i];
-                  $('form [name=kinerja]').append(`<option value='${item.id}'>${item.kinerja}</option>`);
-      
-                  // Menampilkan informasi dalam konsol
-                  console.log('Ini data ke-' + (i + 1));
-                  console.log('Sasaran ID: ' + item.sasaran_id);
-                  console.log('Kinerja: ' + item.kinerja);
-                  console.log('------------------------------');
-              }
-          } else {
-              console.log('Tidak ada data.');
-          }
-      },
-      error: function(error) {
-          console.error(error);
-      }
-  });
-    }
-
-}
 
             
-            
+            $(`form [name=kinerja]`).on('click', function(){
+              
+              
+            });
+function kinerja(){
+  console.log('masuk om')
+  $(`form [name=kinerja]`).empty()
+
+
+
+}
 </script>
 </body>
 </html>

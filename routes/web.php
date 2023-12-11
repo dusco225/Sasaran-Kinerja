@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KinerjaController;
 use App\Http\Controllers\SasaranController;
+use App\Http\Controllers\TargetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,9 @@ Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.ind
 
 Route::resource('sasarans',SasaranController::class);
 Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index');
+
+Route::resource('targets',TargetController::class);
+Route::get('/targets', [TargetController::class, 'index'])->name('targets.index');
 
 Route::resource('sasarans',SasaranController::class);
 Route::get('/', [SasaranController::class, 'index'])->name('sasarans.index');

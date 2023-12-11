@@ -60,8 +60,8 @@ class KinerjaController extends Controller
     {
         // Validasi input
         $request->validate([
+            'sasaran_id' => 'required',
             'kinerja' => 'required',
-            'sasaran' => 'required',
         ]);
 
         // Perbarui data di database
