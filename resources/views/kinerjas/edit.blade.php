@@ -51,9 +51,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <form action="{{ route('kinerjas.update', $kinerja->id) }}" method="post">
                 @csrf
                 @method('PUT')
+
                 <div class="form-group">
-                    <input type="text" name="sasaran" class="form-control mb-3" value="{{ $kinerja->sasaran }}" required>
+                  <label for="sasaran_id">Sasaran</label>
+                    <select name="sasaran_id" id="" class="form-control">
+                      @foreach ($sasarans as $sasaran)
+                    <option value="{{ $sasaran->id }}" {{ $sasaran->id == $kinerja->sasaran_id ? 'selected' : '' }}>
+                      {{ $sasaran->sasaran }}
+                    </option>        
+                      @endforeach
+                    </select>
                 </div>
+                {{-- <div class="form-group">
+                    <input type="text" name="sasaran" class="form-control mb-3" value="{{ $kinerja->sasaran->sasaran }}" required>
+                </div> --}}
                 <div class="form-group">
                     <input type="text" name="kinerja" class="form-control" value="{{ $kinerja->kinerja }}" required>
                 </div>

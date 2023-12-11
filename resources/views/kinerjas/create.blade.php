@@ -48,32 +48,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="card-body">
            <form action="{{ route('kinerjas.store') }}" method="post">
                 @csrf
-                <div class="form-group">
-                  <label for="sasaran">Sasaran</label>
-                    <select name="sasaran" id="" class="form-control">
-                      <span class="pilhihn">
-                        <option value="">--sasaran--</option>
+                         <div class="form-group">
+                            <label for="sasaran_id">Sasaran</label>
+                              <select name="sasaran_id" id="" class="form-control">
+                                @foreach ($sasarans as $sasaran)
+                              <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+                                @endforeach
+                              </select>
+                         </div>
+                         
+                          <div class="form-group">
+                            <label for="kinerja">Indikator Kinerja</label>
+                            <input type="text" name="kinerja" class="form-control mb-3" id="" required>
+                          </div>
 
-                      </span>
-                      <!-- <div class="selectSasaran bg-danger">
-                      </div> -->
-                  
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="format">Format</label>
-                  <select name="format" id="" class="form-control">
-                    <option value="">--format--</option>
-                    <option value="pilih">Pilih Indikator</option>
-                    <option value="tambah">Buat Indikator</option>
-                  </select>
-
-                    {{-- <input type="text" name="kinerja" class="form-control mb-3" required> --}}
-                </div>
-                <div class="form-group" id="format">
-                    
-
-                </div>
                 <div class="form-group">
                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
@@ -104,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
-<script>
+{{-- <script>
   
   $(document).ready(function(){
    
@@ -209,7 +197,7 @@ function taik(){
 
             
             
-</script>
+</script> --}}
 </body>
 </html>
 

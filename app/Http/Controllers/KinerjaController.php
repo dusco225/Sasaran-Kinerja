@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ViewKinerja;
 use App\Models\Kinerja;
-use App\Models\sasaran;
+use App\Models\Sasaran;
 use Illuminate\Http\Request;
 
 class KinerjaController extends Controller
@@ -16,22 +16,9 @@ class KinerjaController extends Controller
     }
     public function create()
     {
-        // $nilai = 17;
-        $nilai = request()->input('nilai');
-    
-        if ($nilai) {
-            $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
-            return response()->json(['data' => $kinerjas]);
-            // $sasarans = Sasaran::all();
-            // return view('kinerjas.create', compact('sasarans'));
-
-        } else {
             $sasarans = Sasaran::all();
-            return view('kinerjas.create', compact('sasarans'));
-
-        }
-        
-    
+            $kinerjas = Kinerja::all();
+            return view('kinerjas.create', compact('sasarans','kinerjas'));
     }
     
 
@@ -39,7 +26,7 @@ class KinerjaController extends Controller
 {
     // Validasi input
     $request->validate([
-        'sasaran' => 'required',
+        'sasaran_id' => 'required',
         'kinerja' => 'required',
     ]);
 
@@ -53,10 +40,11 @@ class KinerjaController extends Controller
 
     public function edit(Kinerja $kinerja)
     {
-        return view('kinerjas.edit', compact('kinerja'));
+        $sasarans = Sasaran::all();
+        return view('kinerjas.edit', compact('kinerja','sasarans'));
     }
 
-    public function update(Request $request, Kinerja $kinerja,)
+    public function update(Request $request, Kinerja $kinerja)
     {
         // Validasi input
         $request->validate([

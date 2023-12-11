@@ -61,8 +61,8 @@
               @foreach ($targets as $target)
               <tr>
                 <td>{{ $no++ }}</td>
-                <td class="col-4">{{ $target->sasaran ? $target->sasaran->sasaran : 'Tidak ada sasaran' }}</td>
-                <td class="col-4">{{ $target->kinerja ? $target->kinerja->kinerja : 'Tidak ada kinerja' }}</td>
+                <td class="col-4">{{ $target->sasaran ? $target->sasaran->sasaran : 'Tidak ada data sasaran' }}</td>
+                <td class="col-4">{{ $target->kinerja ? $target->kinerja->kinerja : 'Tidak ada data kinerja' }}</td>
                 <td class="">{{ $target->tahunan }}</td>
                 <td class="">{{ $target->I }}</td>
                 <td class="">{{ $target->II }}</td>
