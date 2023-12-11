@@ -50,10 +50,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="form-group">
                   <label for="sasaran">Sasaran</label>
                     <select name="sasaran" id="" class="form-control">
-                      <option value="">--sasaran--</option>
-                        {{-- @foreach ($sasarans as $sasaran)
-                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-                            @endforeach --}}
+                      <span class="pilhihn">
+                        <option value="">--sasaran--</option>
+
+                      </span>
+                      <!-- <div class="selectSasaran bg-danger">
+                      </div> -->
+                  
                     </select>
                 </div>
                 <div class="form-group">
