@@ -156,12 +156,7 @@ $('form').on('click', '[name=sasaran]', function(){
   
 });
 
-  // $('form').on('change', '[name=sasaran]', function(){
-  //   var hasil = $(this).val();
-  //   $(this).val(hasil);
-  //   console.log($(this).val()+'suuuu');
-  //   kinerja()
-  // });
+
 
   $(`form [name=kinerja]`).on(`click`, function(){
 console.log('susu jepang')
@@ -210,71 +205,6 @@ function taik(){
     }
 
 }
-
-// $('form [name=sasaran]').on('click', function(){
-//   $(this).empty();
-//     $(this).append(`@foreach ($sasarans as $sasaran)
-//                         <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-//                     @endforeach`);
-// });
-
-// $('#pilih').on('click', function(){
-  // console.log('masuuk om');
-  //   var nilai = $(this).val();
-  //   $(this).empty();
-    // Lakukan sesuatu dengan nilai
-// });
-
-
-  // $('form').on('click', '#pilih', function(){
-  //     // Lakukan sesuatu dengan nilai kinerja
-  //   //  kinerja();
-  //   //  var nilai = $('form [name=sasaran]').val()
-  //   //   console.log('nilaunya->'+nilai);
-  //     url = `{{ route('kinerjas.store') }}`;
-  //     var selectedValue = $(`form [name=sasaran]`).val()
-  //     console.log('masuuk om' + selectedValue);
-  //     // var nilai = $(this).val();
-  //     $(this).empty();
-      
-  //       $.ajax({
-  //         type: 'GET',
-  //         url: url,
-  //         // data: { nilai: formElement.find('[name=sasaran]').val() },  // Gunakan formElement untuk merujuk ke elemen form        
-  //         data: { nilai: $(`form [name=sasaran]`).val() },  // Gunakan formElement untuk merujuk ke elemen form        
-  //         success: function(data) {
-  //           $(`form [name=kinerja]`).empty()
-      
-  //             if (data.data && data.data.length > 0) {
-  //                 for (var i = 0; i < data.data.length; i++) {
-  //                     var item = data.data[i];
-  //                     $(this).append(`<option value='${item.sasaran_id}'>${item.kinerja}</option>`)
-      
-      
-  //                     // Menampilkan informasi dalam konsol
-  //                     console.log('Ini data ke-' + (i + 1));
-  //                     console.log('Sasaran ID: ' + item.sasaran_id);
-  //                     console.log('Kinerja: ' + item.kinerja);
-  //                     console.log('------------------------------');
-  //                 }
-  //             } else {
-  //                 console.log('Tidak ada data.');
-  //             }
-  //         },
-  //         error: function(error) {
-  //             console.error(error);
-  //         }
-  //     });
-  // });
-// $('form #pilih').on('click', function() {
-  // Lakukan sesuatu dengan ni
-//      kinerja();
-// });
-
-function kinerja(){
-  
-}
-
 
             
             
