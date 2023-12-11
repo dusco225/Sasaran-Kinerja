@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Sidebar Container -->
   @include('Partials.sidebar')
-
+<script src="{{ route('kinerjas.create') }}/index.js"></script>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -105,6 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
 <script>
+  
   $(document).ready(function(){
     console.log('titit')
     $('form [name=format]').on('change', function () {
