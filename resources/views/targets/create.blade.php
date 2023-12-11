@@ -136,14 +136,10 @@ $('form').on('click', '[name=sasaran_id]', function(){
     
   var selectedValue = $('form [name=sasaran_id]').val()
     console.log(selectedValue);
-    
-    
-    
-
      
       $.ajax({
       type: 'GET',
-      url: `{{ route('kinerjas.create') }}`,
+      url: `{{ route('targets.create') }}`,
       data: { nilai: selectedValue },        
       success: function(data) {
           console.log('ini datanya:' + data.data);
