@@ -25,12 +25,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Sasaran Program</h1>
+            {{-- <h1 class="m-0">Starter Page</h1> --}}
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Edit Sasaran</li>
+              <li class="breadcrumb-item"><a href="{{ route('sasarans.index') }}">Home</a></li>
+              <li class="breadcrumb-item active">Edit Data Sasaran</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,21 +41,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
         <div class="card card-info card-outline">
+            <div class="card-header">
 
+                <h3>Edit Data Sasaran</h3>
+
+            </div>
           <div class="card-body">
-            <table class="table table-bordered">
-             
-                <form action="{{ route('sasarans.update', $sasaran->id) }}" method="post">
-                    @csrf
-                    @method('PUT')
-                    <div class="form-group">
-                        <label for="sasaran">Sasaran</label>
-                        <input type="text" name="sasaran" class="form-control mb-3" value="{{ $sasaran->sasaran }}" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-                  
-            </table>
+            <form action="{{ route('sasarans.update', $sasaran->id) }}" method="post">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                    <input type="text" name="sasaran" class="form-control mb-3" value="{{ $sasaran->sasaran }}" placeholder="Sasaran" required>
+                    
+                </div>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
           </div>
         </div>
        
@@ -94,23 +96,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
+  {{-- 
+  @extends('template.dashboard')
+  @section('title', 'Edit')
+  @section('content')
+  <form action="{{ route('sasarans.update', $sasaran->id) }}" method="post">
+      @csrf
+      @method('PUT')
+      <div class="form-group">
+          <label for="sasaran">Sasaran</label>
+          <input type="text" name="sasaran" class="form-control mb-3" value="{{ $sasaran->sasaran }}" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Simpan</button>
+  </form>
+  @endsection
 
-{{-- 
-
-@extends('template.dashboard')
-@section('title', 'Edit')
-@section('content')
-<form action="{{ route('sasarans.update', $sasaran->id) }}" method="post">
-    @csrf
-    @method('PUT')
-    <div class="form-group">
-        <label for="sasaran">Sasaran</label>
-        <input type="text" name="sasaran" class="form-control mb-3" value="{{ $sasaran->sasaran }}" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Simpan</button>
-</form>
-@endsection
-
-@section('inline_script')
-@endsection --}}
-    
+  @section('inline_script')
+  @endsection
+      --}}

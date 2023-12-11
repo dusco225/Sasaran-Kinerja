@@ -25,12 +25,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Sasaran Program</h1>
+              {{-- <h1 class="m-0">Starter Page</h1> --}}
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Sasaran</li>
+              <li class="breadcrumb-item"><a href="{{ route('sasarans.index') }}">Home</a></li>
+              <li class="breadcrumb-item active">Tambah Data Sasaran</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,23 +41,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
         <div class="card card-info card-outline">
-          <div class="card-header">
-            <h3>Tambah Data Sasaran</h3>
-          </div>
+            <div class="card-header">
 
+                <h4>Tambah Data Sasaran</h4>
+
+            </div>
           <div class="card-body">
-            <table class="table table-bordered">
-             
-                <form class="mt-3" action="{{ route('sasarans.store') }}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="sasaran">Sasaran Program</label>
-                        <input type="text" name="sasaran" class="form-control mb-3" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                </form>
-                  
-            </table>
+           <form action="{{ route('sasarans.store') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <input type="text" name="sasaran" class="form-control mb-3" placeholder="Sasaran" autocomplete="off" autofocus required>
+                </div>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
           </div>
         </div>
        
@@ -88,8 +86,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </body>
 </html>
-
-
 
 {{-- @extends('template.dashboard')
 @section('title', 'Tambah Data')

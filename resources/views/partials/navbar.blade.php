@@ -48,5 +48,10 @@
         <i class="fas fa-th-large"></i>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-widget="logout" href="{{ route('logout') }}" role="button">
+        <i class="bi bi-box-arrow-right"></i>
+      </a>
+    </li>
   </ul>
 </nav>
