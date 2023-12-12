@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
  @include('Partials.head')
@@ -30,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="">Home</a></li>
-              <li class="breadcrumb-item active">Data Sasaran</li>
+              <li class="breadcrumb-item active">Data Target</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -44,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="card-header">
 
             <div class="card-tools">
-              <a href="{{ route('kinerjas.create') }}" class="btn btn-primary">Tambah Data   <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('targets.create') }}" class="btn btn-primary">Tambah Data <i class="fas fa-plus-square"></i></a>
             </div>
           </div>
 
@@ -54,18 +50,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <th>No</th>
                   <th>Sasaran</th>
                   <th>Indikator Kinerja</th>
+                  <th>Tahunan</th>
+                  <th colspan="4">Triwulan</th>
                   <th>Aksi</th>
               </tr>
 
                 <?php $no = 1; ?>
 
-              @foreach ($kinerjas as $kinerja)
+
+              @foreach ($targets as $target)
               <tr>
                 <td>{{ $no++ }}</td>
-                <td class="col-4">{{  $kinerja->sasaran  }}</td>
-                <td class="col-4">{{ $kinerja->kinerja }}</td>
-                <td><a href="{{ route('kinerjas.edit', $kinerja->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
-                    <form action="{{ route('kinerjas.destroy', $kinerja->id) }}" method="post" style="display: inline">
+                <td class="col-4">{{ $target->sasaran ? $target->sasaran->sasaran : 'Tidak ada sasaran' }}</td>
+                <td class="col-4">{{ $target->kinerja ? $target->kinerja->kinerja : 'Tidak ada kinerja' }}</td>
+                <td class="">{{ $target->tahunan }}</td>
+                <td class="">{{ $target->I }}</td>
+                <td class="">{{ $target->II }}</td>
+                <td class="">{{ $target->III }}</td>
+                <td class="">{{ $target->IV }}</td>
+                <td class="col-3">
+                  <a href="{{ route('targets.edit', $target->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
+                    <form action="{{ route('targets.destroy', $target->id) }}" method="post" style="display: inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="bi bi-trash"></i></button>
@@ -105,57 +110,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- 
-@extends('template.dashboard')
-@section('title', 'kinerja')
-@section('content')
-    <div class="content">
-        <h1>Indikator Kinerja<br></h1>
-        <a href="{{ route('kinerjas.create') }}" class="btn btn-primary mb-3 mt-2">Tambah Data</a>
-        <table class="table ">
-            <thead class="table-primary">
-            <tr>
-                <th scope="row">No</th>
-                <th scope="row">Sasaran</th>
-                <th scope="row">Kinerja</th>
-                <th scope="row">Aksi</th>
-            </tr>
-        </thead>
-            <tbody class="table-group-divider">
-                
-
-                @foreach ($kinerjas as $kinerja)
-                    <tr>
-                        
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $kinerja->sasaran }}</td>
-                        <td>{{ $kinerja->kinerja }}</td>
-                        <td><a href="{{ route('kinerjas.edit', $kinerja->id) }}" class="btn btn-warning m-1">Edit</a>
-                        <form action="{{ route('kinerjas.destroy', $kinerja->id) }}" method="post" style="display: inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')">Hapus</button>
-                        </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    @endsection
-
-    @section('inline_script')
-@endsection --}}

@@ -20,20 +20,17 @@ use Illuminate\Support\Facades\Route;
 */
 //
 
-Route::get('/login',[LoginController::class,'halamanlogin']);
+Route::get('/login',[LoginController::class,'halamanlogin'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class,'authenticate']);
 Route::get('/logout',[LogoutController::class,'logout'])->name('logout');
 
-
 Route::resource('kinerjas',KinerjaController::class);
-Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.index');
-// Route::post('/kinerjas', [KinerjaController::class, 'create'])->name('kinerjas.create');
+Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.index')->middleware('guest');
 
 Route::resource('sasarans',SasaranController::class);
-Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index');
-
+Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index')->middleware('auth');
 
 Route::get('/', function () {
-    return redirect('/sasarans');
+    return redirect('/login');
 });
 

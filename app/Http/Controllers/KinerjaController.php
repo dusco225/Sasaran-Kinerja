@@ -12,23 +12,26 @@ class KinerjaController extends Controller
     public function index()
     {
         $kinerjas = ViewKinerja::all();
-        return view('kinerjas.index', compact('kinerjas'));
+        return view ('kinerjas.index', compact('kinerjas'));
     }
     public function create()
     {
+        // $nilai = 17;
         $nilai = request()->input('nilai');
     
         if ($nilai) {
-            $kinerjas = [
-                ['sasaran_id' => '1', 'kinerja' => 'susu jepang'],
-            ];
-            $sasarans = Sasaran::all();
-        } else {
             $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
+            return response()->json(['data' => $kinerjas]);
+            // $sasarans = Sasaran::all();
+            // return view('kinerjas.create', compact('sasarans'));
+
+        } else {
             $sasarans = Sasaran::all();
+            return view('kinerjas.create', compact('sasarans'));
+
         }
+        
     
-        return view('kinerjas.create', compact('sasarans', 'kinerjas'));
     }
     
 
@@ -36,7 +39,7 @@ class KinerjaController extends Controller
 {
     // Validasi input
     $request->validate([
-        'sasaran_id' => 'required',
+        'sasaran' => 'required',
         'kinerja' => 'required',
     ]);
 
@@ -57,8 +60,8 @@ class KinerjaController extends Controller
     {
         // Validasi input
         $request->validate([
+            'sasaran_id' => 'required',
             'kinerja' => 'required',
-            'sasaran' => 'required',
         ]);
 
         // Perbarui data di database

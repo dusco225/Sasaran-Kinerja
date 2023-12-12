@@ -9,8 +9,8 @@ class Kinerja extends Model
 {
     protected $fillable = ['sasaran_id', 'kinerja'];
 
-    public function indikator()
+    public function sasaran()
     {
-        return $this->belongsTo(KinerjaController::class);
+        return $this->belongsTo(Sasaran::class, 'sasaran_id');
     }
 }

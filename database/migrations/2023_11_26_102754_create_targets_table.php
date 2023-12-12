@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('targets', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_kinerja');
-            $table->string('I');
-            $table->string('II');
-            $table->string('III');
-            $table->string('IV');
+            $table->integer('sasaran_id');
+            $table->integer('kinerja_id');
+            $table->string('tahunan')->nullable();
+            $table->string('I')->nullable();
+            $table->string('II')->nullable();
+            $table->string('III')->nullable();
+            $table->string('IV')->nullable();
             $table->timestamps();
         });
     }

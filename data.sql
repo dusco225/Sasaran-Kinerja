@@ -42,18 +42,29 @@ CREATE TABLE IF NOT EXISTS `kinerjas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-<<<<<<< HEAD
--- Dumping data for table sasarandb.kinerjas: ~4 rows (approximately)
+-- Dumping data for table sasarandb.kinerjas: ~3 rows (approximately)
 REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_at`) VALUES
-	(7, 6, 'jasmine', '2023-12-04 20:30:29', '2023-12-04 20:30:29'),
-	(8, 6, 'aufa', '2023-12-04 20:30:35', '2023-12-04 20:30:35'),
-	(9, 5, 'aufa', '2023-12-04 23:59:23', '2023-12-04 23:59:23'),
-	(10, 5, 'jasmine', '2023-12-05 00:00:10', '2023-12-05 00:00:10');
-=======
--- Dumping data for table sasarandb.kinerjas: ~0 rows (approximately)
->>>>>>> 741f1d6af830a30baead9f10cfe58e5c51236ae8
+	(16, 12, 'Rerata nilai ujian mata kuliah pendidikan agama pada PTK / PTU yang bermuatan mederasi beragama', '2023-12-09 09:57:10', '2023-12-09 09:57:10'),
+	(17, 13, 'Persentase peningkatan mahasiswa pada PTKI', '2023-12-09 09:59:26', '2023-12-09 09:59:26'),
+	(18, 13, 'Jumlah mahasiswa tahun 2023', '2023-12-09 10:00:20', '2023-12-09 10:00:20'),
+	(19, 13, 'Jumlah mahasiswa tahun 2022', '2023-12-09 10:01:00', '2023-12-09 10:01:00'),
+	(20, 14, 'Persentase dosen bersertifikat pendidikan', '2023-12-09 10:01:37', '2023-12-09 10:01:37'),
+	(21, 14, 'Jumlah dosen bersertifikat pendidikan', '2023-12-09 10:02:06', '2023-12-09 10:02:06'),
+	(22, 14, 'Jumlah dosen', '2023-12-09 10:02:23', '2023-12-09 10:02:23'),
+	(23, 14, 'Persentase dosen berkualitifikasi S3', '2023-12-09 10:03:00', '2023-12-09 10:03:00'),
+	(24, 14, 'Jumlah berkualitifikasi S3', '2023-12-09 10:03:37', '2023-12-09 10:03:37'),
+	(25, 12, 'Jumlah dosen', '2023-12-09 10:03:47', '2023-12-09 10:03:47'),
+	(26, 15, 'Persentase Prodi PTK yang terakreditasi A/Unggul', '2023-12-09 10:05:09', '2023-12-09 10:05:09'),
+	(27, 15, 'Jumlah Prodi PTK yang terakreditasi  A/Unggul', '2023-12-09 10:07:51', '2023-12-09 10:07:51'),
+	(28, 15, 'Jumlah Prodi', '2023-12-09 10:08:21', '2023-12-09 10:08:21'),
+	(29, 16, 'Persentase peningkatan mahasiswa asing  di PTK', '2023-12-09 10:09:56', '2023-12-09 10:09:56'),
+	(30, 16, 'Jumlah Mahasiswa Asing Tahun 2023', '2023-12-09 10:10:13', '2023-12-09 10:10:13'),
+	(31, 16, 'Jumlah Mahasiswa Asing Tahun 2022', '2023-12-09 10:10:28', '2023-12-09 10:10:28'),
+	(32, 17, 'Persentase jurnal ilmiah terakreditasi  nasional', '2023-12-09 10:10:56', '2023-12-09 10:10:56'),
+	(33, 17, 'Jumlah jurnal ilmiah terakreditasi nasional', '2023-12-09 10:13:59', '2023-12-09 10:13:59'),
+	(34, 17, 'Jumlah jurnal ilmiah yang dimiliki', '2023-12-09 10:15:03', '2023-12-09 10:15:03');
 
 -- Dumping structure for table sasarandb.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -63,19 +74,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-<<<<<<< HEAD
--- Dumping data for table sasarandb.migrations: ~7 rows (approximately)
-REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
-	(1, '2014_10_12_000000_create_users_table', 1),
-	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-	(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-	(5, '2023_11_26_101053_create_kinerjas_table', 1),
-	(6, '2023_11_26_102754_create_targets_table', 1),
-	(7, '2023_11_27_063109_create_sasarans_table', 1);
-=======
 -- Dumping data for table sasarandb.migrations: ~0 rows (approximately)
->>>>>>> 741f1d6af830a30baead9f10cfe58e5c51236ae8
 
 -- Dumping structure for table sasarandb.password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
@@ -113,16 +112,18 @@ CREATE TABLE IF NOT EXISTS `sasarans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-<<<<<<< HEAD
--- Dumping data for table sasarandb.sasarans: ~2 rows (approximately)
+-- Dumping data for table sasarandb.sasarans: ~3 rows (approximately)
 REPLACE INTO `sasarans` (`id`, `sasaran`, `created_at`, `updated_at`) VALUES
-	(5, 'jajsadads', '2023-12-04 00:47:17', '2023-12-04 00:47:17'),
-	(6, 'sasaran sipa digunakan', '2023-12-04 20:30:19', '2023-12-04 20:30:19');
-=======
--- Dumping data for table sasarandb.sasarans: ~0 rows (approximately)
->>>>>>> 741f1d6af830a30baead9f10cfe58e5c51236ae8
+	(12, 'Menguatkan sistem pendidikan yang berperspektif moderat', '2023-12-09 09:50:03', '2023-12-09 09:50:03'),
+	(13, 'Menigkatnya partisipasi peserta didik pada satuan pendidikan', '2023-12-09 09:50:42', '2023-12-09 09:50:42'),
+	(14, 'Meningkatnya kualitas tenaga pendidik pada satuan pendidikan', '2023-12-09 09:51:05', '2023-12-09 09:51:05'),
+	(15, 'Meningkatnya kualitas standar dan sistem penjaminan mutu pendidikan', '2023-12-09 09:51:34', '2023-12-09 09:51:34'),
+	(16, 'Meningkatnya kualitas PTK yang bereputasi internasional', '2023-12-09 09:52:05', '2023-12-09 09:52:05'),
+	(17, 'Meningkatnya kualitas pemanfaatan penelitian', '2023-12-09 09:53:03', '2023-12-09 09:53:03'),
+	(18, 'Meningkatnya kualitas lulusan PTK yang di terima di dunia kerja', '2023-12-09 09:53:21', '2023-12-09 09:53:21'),
+	(19, 'Meningkatnya tata kelola organisasi Unit Eselon 1 yang efektik dan akuntabel', '2023-12-09 09:54:03', '2023-12-09 09:54:13');
 
 -- Dumping structure for table sasarandb.targets
 CREATE TABLE IF NOT EXISTS `targets` (
@@ -155,17 +156,19 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Dumping data for table sasarandb.users: ~0 rows (approximately)
 
--- Dumping structure for table sasarandb.vw_kinerja
-CREATE TABLE IF NOT EXISTS `vw_kinerja` (
-  `id` int unsigned NOT NULL,
-  `sasaran_id` int NOT NULL,
-  `sasaran` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kinerja` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Dumping structure for view sasarandb.vw_kinerja
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_kinerja` (
+	`id` INT(10) UNSIGNED NOT NULL,
+	`sasaran_id` INT(10) NOT NULL,
+	`sasaran` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`kinerja` TEXT NOT NULL COLLATE 'utf8mb4_unicode_ci'
+) ENGINE=MyISAM;
 
--- Dumping data for table sasarandb.vw_kinerja: 0 rows
-/*!40000 ALTER TABLE `vw_kinerja` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vw_kinerja` ENABLE KEYS */;
+-- Dumping structure for view sasarandb.vw_kinerja
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_kinerja`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_kinerja` AS select `kinerja`.`id` AS `id`,`kinerja`.`sasaran_id` AS `sasaran_id`,coalesce(`sasaran`.`sasaran`,`kinerja`.`sasaran_id`) AS `sasaran`,`kinerja`.`kinerja` AS `kinerja` from (`kinerjas` `kinerja` left join `sasarans` `sasaran` on((`kinerja`.`sasaran_id` = `sasaran`.`id`)));
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
