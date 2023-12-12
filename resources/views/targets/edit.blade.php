@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('targets.index') }}">Home</a></li>
-              <li class="breadcrumb-item active">Edit Data Kinerja</li>
+              <li class="breadcrumb-item active">Edit Data Target</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="card card-info card-outline">
             <div class="card-header">
 
-                <h3>Edit Data Kinerja</h3>
+                <h3>Edit Data Target</h3>
 
             </div>
           <div class="card-body">

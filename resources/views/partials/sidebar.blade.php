@@ -35,6 +35,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('sasarans.index') }}" class="nav-link {{ Request::is('sasarans') ? 'active' : '' }}">
+                  <i class="bi bi-folder2-open"></i>
                   <p>Sasaran</p>
                 </a>
               </li>
@@ -42,6 +43,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('kinerjas.index') }}" class="nav-link {{ Request::is('kinerjas') ? 'active' : '' }}">
+                  <i class="bi bi-folder2-open"></i>
                   <p>Kinerja</p>
                 </a>
               </li>
@@ -49,6 +51,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('targets.index') }}" class="nav-link {{ Request::is('targets') ? 'active' : '' }}">
+                  <i class="bi bi-folder2-open"></i>
                   <p>Target</p>
                 </a>
               </li>
