@@ -21,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Sasaran Program</h1>
+            <h1 class="m-0">Target</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="">Home</a></li>
-              <li class="breadcrumb-item active">Data Target</li>
+              <li class="breadcrumb-item active">Target</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -40,7 +40,7 @@
           <div class="card-header">
 
             <div class="card-tools">
-              <a href="{{ route('targets.create') }}" class="btn btn-primary">Tambah Data <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('targets.create') }}" class="btn btn-primary">Tambah Data    <i class="fas fa-plus-square"></i></a>
             </div>
           </div>
 
@@ -61,8 +61,8 @@
               @foreach ($targets as $target)
               <tr>
                 <td>{{ $no++ }}</td>
-                <td class="col-4">{{ $target->sasaran ? $target->sasaran->sasaran : 'Tidak ada sasaran' }}</td>
-                <td class="col-4">{{ $target->kinerja ? $target->kinerja->kinerja : 'Tidak ada kinerja' }}</td>
+                <td class="col-4">{{ $target->sasaran ? $target->sasaran->sasaran : 'Tidak ada data sasaran' }}</td>
+                <td class="col-4">{{ $target->kinerja ? $target->kinerja->kinerja : 'Tidak ada data kinerja' }}</td>
                 <td class="">{{ $target->tahunan }}</td>
                 <td class="">{{ $target->I }}</td>
                 <td class="">{{ $target->II }}</td>

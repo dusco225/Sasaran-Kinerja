@@ -48,18 +48,14 @@
                 <div class="form-group">
                   <label for="sasaran_id">Sasaran :</label>
                   <select class="form-control" id="sasaran_id" name="sasaran_id" autofocus>
-                    @foreach ($sasarans as $sasaran)
-                      <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>
-                    @endforeach
+                    <option value="">--sasaran--</option>
                   </select>
                 </div>
   
                 <div class="form-group">
                   <label for="kinerja_id">Indikator Kinerja :</label>
                   <select class="form-control" id="kinerja_id" name="kinerja_id" autofocus>
-                    @foreach ($kinerjas as $kinerja)
-                      <option value="{{ $kinerja->id }}">{{ $kinerja->kinerja }}</option>
-                    @endforeach
+                    <option value="">--kinerja--</option>
                   </select>
                   </div>
 
@@ -113,61 +109,72 @@
 
 <!-- REQUIRED SCRIPTS -->
 @include('Partials.script')
-{{-- <script>
-  $(`form [name=sasaran]`).on('click', function(){
-    $(this).empty()
-   $(this).append(`@foreach ($sasarans as $sasaran)
-                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
-                            @endforeach`) 
+<script>
+  
+  $(document).ready(function(){
+   
+   
+$('form').on('click', '[name=sasaran_id]', function(){
+      // Lakukan sesuatu dengan nilai sasaran
+      if ($(this).val() === '') {
+    console.log('masuk oom');
+    $(this).empty();
+    $(this).html(`
+        @foreach ($sasarans as $sasaran)
+            <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>        
+        @endforeach
+    `);
+}
+      
     
+  });
+  $('form').on('change', '[name=sasaran_id]', function() {
+  
+    
+    $('form [name=kinerja_id]').empty()
+    // $('form [name=kinerja_id]').append('<option value="">--kinerja--</option>')
+    
+  var selectedValue = $('form [name=sasaran_id]').val()
+    console.log(selectedValue);
+     
+      $.ajax({
+      type: 'GET',
+      url: `{{ route('targets.create') }}`,
+      data: { nilai: selectedValue },        
+      success: function(data) {
+          console.log('ini datanya:' + data.data);
+          console.log('ini datanya:' + data);
+          $(`form [name=kinerja]`).empty();
+  
+          if (data.data && data.data.length > 0) {
+              for (var i = 0; i < data.data.length; i++) {
+                  var item = data.data[i];
+                  $('form [name=kinerja_id]').append(`<option value='${item.id}'>${item.kinerja}</option>`);
+      
+                  // Menampilkan informasi dalam konsol
+                  console.log('Ini data ke-' + (i + 1));
+                  console.log('Sasaran ID: ' + item.sasaran_id);
+                  console.log('Kinerja: ' + item.kinerja);
+                  console.log('------------------------------');
+              }
+          } else {
+              console.log('Tidak ada data.');
+          }
+      },
+      error: function(error) {
+          console.error(error);
+      }
+  });
+    
+  
 });
-$('form [name=sasaran]').on('change', function(){
-    var nilai = $(this).val();
-
-    // Menggunakan AJAX untuk mengirim data ke server
-    var url = `{{ route('kinerjas.create') }}`;
-    $.ajax({
-    type: 'GET',
-    url: url,
-    data: { nilai: nilai },        
-    success: function(data) {
-      $(`form [name=kinerja]`).empty()
-
-        if (data.data && data.data.length > 0) {
-            for (var i = 0; i < data.data.length; i++) {
-                var item = data.data[i];
-                $(`form [name=kinerja]`).append(`<option value='${item.sasaran_id}'>${item.kinerja}</option>`)
+  });
 
 
-                // Menampilkan informasi dalam konsol
-                console.log('Ini data ke-' + (i + 1));
-                console.log('Sasaran ID: ' + item.sasaran_id);
-                console.log('Kinerja: ' + item.kinerja);
-                console.log('------------------------------');
-            }
-        } else {
-            console.log('Tidak ada data.');
-        }
-    },
-    error: function(error) {
-        console.error(error);
-    }
-});
 
-});
 
             
-            $(`form [name=kinerja]`).on('click', function(){
-              
-              
-});
-          function kinerja(){
-            console.log('masuk om')
-            $(`form [name=kinerja]`).empty()
-
-
-
-}
-</script> --}}
+            
+</script>
 </body>
 </html>

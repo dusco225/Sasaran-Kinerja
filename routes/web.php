@@ -5,6 +5,7 @@ use App\Http\Controllers\KinerjaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SasaranController;
+use App\Http\Controllers\TargetController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,18 +20,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //
+Route::get('/', function () {
+    return view('/welcome');
+});
 
-Route::get('/login',[LoginController::class,'halamanlogin'])->name('login')->middleware('guest');
+
+Route::get('/login',[LoginController::class,'halamanlogin'])->name('login');
 Route::post('/login',[LoginController::class,'authenticate']);
 Route::get('/logout',[LogoutController::class,'logout'])->name('logout');
 
 Route::resource('kinerjas',KinerjaController::class);
-Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.index')->middleware('guest');
+
+
+Route::resource('targets',TargetController::class);
+
 
 Route::resource('sasarans',SasaranController::class);
-Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index')->middleware('auth');
 
-Route::get('/', function () {
-    return redirect('/login');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/kinerjas', [KinerjaController::class, 'index'])->name('kinerjas.index');
+    Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index');
+    Route::get('/targets', [TargetController::class, 'index'])->name('targets.index');
 });
-

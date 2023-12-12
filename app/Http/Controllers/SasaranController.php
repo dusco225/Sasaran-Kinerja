@@ -71,4 +71,10 @@ class SasaranController extends Controller
              ->with('success', 'Data Sasaran berhasil dihapus!');
     }
 
+    // app/Http/Controllers/HomeController.php
+    public function __construct()
+    {
+    $this->middleware('auth');
+    }
+
 }

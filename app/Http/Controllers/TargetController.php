@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kinerja;
+use App\Models\ViewKinerja;
 use App\Models\Sasaran;
 use App\Models\target;
 use Illuminate\Http\Request;
@@ -22,10 +23,22 @@ class TargetController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        $sasarans = Sasaran::all();
-        $kinerjas = Kinerja::all();
-        return view('targets.create', compact('sasarans','kinerjas'));
+    {     $nilai = request()->input('nilai');
+    
+        if ($nilai) {
+            $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
+            return response()->json(['data' => $kinerjas]);
+            // $sasarans = Sasaran::all();
+            // return view('kinerjas.create', compact('sasarans'));
+
+        } else {
+            $sasarans = Sasaran::all();
+            return view('targets.create', compact('sasarans'));
+
+        }
+    //     $sasarans = Sasaran::all();
+    //     $kinerjas = Kinerja::all();
+    //     return view('targets.create', compact('sasarans','kinerjas'));
     }
 
     /**
