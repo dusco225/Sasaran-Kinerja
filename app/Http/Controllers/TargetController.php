@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kinerja;
 use App\Models\ViewKinerja;
+use App\Models\ViewTarget;
 use App\Models\Sasaran;
 use App\Models\target;
 use Illuminate\Http\Request;
@@ -75,6 +76,7 @@ class TargetController extends Controller
      */
     public function edit(target $target)
     {
+        $target = ViewTarget::
         $sasarans = Sasaran::all();
         $kinerjas = Kinerja::all();   
         return view('targets.edit', compact('target','sasarans','kinerjas'));
