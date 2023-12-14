@@ -28,18 +28,13 @@ class TargetController extends Controller
     
         if ($nilai) {
             $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
-            return response()->json(['data' => $kinerjas]);
-            // $sasarans = Sasaran::all();
-            // return view('kinerjas.create', compact('sasarans'));
-
-        } else {
+            return response()->json(['data' => $kinerjas]); 
+        } 
             $sasarans = Sasaran::all();
             return view('targets.create', compact('sasarans'));
 
-        }
-    //     $sasarans = Sasaran::all();
-    //     $kinerjas = Kinerja::all();
-    //     return view('targets.create', compact('sasarans','kinerjas'));
+        
+    
     }
 
     /**
@@ -76,7 +71,7 @@ class TargetController extends Controller
      */
     public function edit(target $target)
     {
-        $target = ViewTarget::
+        $target = ViewTarget::all();
         $sasarans = Sasaran::all();
         $kinerjas = Kinerja::all();   
         return view('targets.edit', compact('target','sasarans','kinerjas'));
