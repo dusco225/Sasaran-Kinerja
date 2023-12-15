@@ -15,6 +15,12 @@ class SasaranController extends Controller
         return view('sasarans.index', compact('sasarans'));
     }
 
+    public function admin()
+    {
+        $sasarans = Sasaran::all();
+        return view('sasarans.admin', compact('sasarans'));
+    }
+
     public function create()
     {
         return view('sasarans.create');
@@ -63,6 +69,12 @@ class SasaranController extends Controller
 
          return redirect()->route('sasarans.index')
              ->with('success', 'Data Sasaran berhasil dihapus!');
+    }
+
+    // app/Http/Controllers/HomeController.php
+    public function __construct()
+    {
+    $this->middleware('auth');
     }
 
 }

@@ -13,7 +13,7 @@
           <img src="{{ asset('img/user1.png') }}"class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">User</a>
+          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 
@@ -35,25 +35,30 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('sasarans.index') }}" class="nav-link {{ Request::is('sasarans') ? 'active' : '' }}">
+                  <i class="bi bi-folder2-open"></i>
                   <p>Sasaran</p>
                 </a>
               </li>
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('kinerjas.index') }}" class="nav-link {{ Request::is('kinerjas') ? 'active' : '' }}">
+                <a href="{{ route('kinerjas.index') }}" class="nav-link">
+                  <i class="bi bi-folder2-open"></i>
                   <p>Kinerja</p>
                 </a>
               </li>
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('targets.index') }}" class="nav-link {{ Request::is('targets') ? 'active' : '' }}">
+                <a href="{{ route('targets.index') }}" class="nav-link">
+                  <i class="bi bi-folder2-open"></i>
                   <p>Target</p>
                 </a>
               </li>
              </ul>
-
+             {{-- @auth    
+             <div><a href="{{ route('logout') }}" class="btn btn-sm btn-secondary">Logout >></a></div>
+             @endauth --}}
       </nav>
       <!-- /.sidebar-menu -->
     </div>

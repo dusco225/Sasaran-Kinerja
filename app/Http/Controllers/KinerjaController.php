@@ -15,10 +15,17 @@ class KinerjaController extends Controller
         return view ('kinerjas.index', compact('kinerjas'));
     }
     public function create()
-    {
+    {  $nilai = request()->input('nilai');
+    
+        if ($nilai) {
+            $kinerjas = ViewKinerja::where('sasaran_id', $nilai)->get();
+            return response()->json(['data' => $kinerjas]);
+            // $sasarans = Sasaran::all();
+            // return view('kinerjas.create', compact('sasarans'));
+
+        }
             $sasarans = Sasaran::all();
-            $kinerjas = Kinerja::all();
-            return view('kinerjas.create', compact('sasarans','kinerjas'));
+            return view('kinerjas.create', compact('sasarans'));
     }
     
 

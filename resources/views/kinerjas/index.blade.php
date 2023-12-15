@@ -25,12 +25,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Sasaran Program</h1>
+            <h1 class="m-0">Indikator Kinerja</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="">Home</a></li>
-              <li class="breadcrumb-item active">Data Sasaran</li>
+              <li class="breadcrumb-item">Home</li>
+              <li class="breadcrumb-item active">Data Kinerja</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -62,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               @foreach ($kinerjas as $kinerja)
               <tr>
                 <td>{{ $no++ }}</td>
-                <td class="col-4">{{ $kinerja->sasaran }}</td>
+                <td class="col-4">{{ $kinerja->sasaran  }}</td>
                 <td class="col-4">{{ $kinerja->kinerja }}</td>
                 <td><a href="{{ route('kinerjas.edit', $kinerja->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
                     <form action="{{ route('kinerjas.destroy', $kinerja->id) }}" method="post" style="display: inline">

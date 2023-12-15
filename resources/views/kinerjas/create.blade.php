@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
         <div class="card card-info card-outline">
             <div class="card-header">
-                <h4>Tambah Data kinerja</h4>
+                <h4>Tambah Data Kinerja</h4>
             </div>
           <div class="card-body">
            <form action="{{ route('kinerjas.store') }}" method="post">
