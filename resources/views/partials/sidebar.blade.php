@@ -56,6 +56,14 @@
                 </a>
               </li>
              </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('capaians.index') }}" class="nav-link">
+                  <i class="bi bi-folder2-open"></i>
+                  <p>Capaian</p>
+                </a>
+              </li>
+             </ul>
              {{-- @auth    
              <div><a href="{{ route('logout') }}" class="btn btn-sm btn-secondary">Logout >></a></div>
              @endauth --}}
