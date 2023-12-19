@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="{{asset('img/informatika.jpg')}}">
+<link rel="icon" href="{{asset('img/informatika.png')}}">
 <title>FST | Manajemen_Capaian_Kinerja</title>
 
 <!-- Google Font: Source Sans Pro -->
