@@ -34,9 +34,7 @@ Route::resource('sasarans',SasaranController::class);
 Route::resource('kinerjas',KinerjaController::class);
 Route::resource('targets',TargetController::class);
 Route::resource('capaians',CapaianController::class);
-
-
-
+Route::resource('users',UserController::class);
 
 
 Route::middleware(['auth'])->group(function () {
@@ -45,4 +43,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/targets', [TargetController::class, 'index'])->name('targets.index');
     Route::get('/capaians', [CapaianController::class, 'index'])->name('capaians.index');
     Route::get('/targetexport', [TargetController::class, 'targetExport'])->name('targetexport');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 });

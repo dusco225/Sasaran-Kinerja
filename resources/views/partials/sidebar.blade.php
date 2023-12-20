@@ -42,7 +42,7 @@
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('kinerjas.index') }}" class="nav-link">
+                <a href="{{ route('kinerjas.index') }}" class="nav-link  {{ Request::is('kinerjas') ? 'active' : '' }}">
                   <i class="bi bi-folder2-open"></i>
                   <p>Kinerja</p>
                 </a>
@@ -50,7 +50,7 @@
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('targets.index') }}" class="nav-link">
+                <a href="{{ route('targets.index') }}" class="nav-link  {{ Request::is('targets') ? 'active' : '' }}">
                   <i class="bi bi-folder2-open"></i>
                   <p>Target</p>
                 </a>
@@ -58,12 +58,22 @@
              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('capaians.index') }}" class="nav-link">
+                <a href="{{ route('capaians.index') }}" class="nav-link  {{ Request::is('capaians') ? 'active' : '' }}">
                   <i class="bi bi-folder2-open"></i>
                   <p>Capaian</p>
                 </a>
               </li>
              </ul>
+          </li>
+        </ul>
+        <ul class="nav nav-pills nav-sidebar flex-column">
+          <li class="nav-item">
+            <a href="{{ route('users.index') }}" class="nav-link">
+              <i class="bi bi-person-video2"></i>
+              <p>User</p>
+            </a>
+          </li>
+         </ul>
              {{-- @auth    
              <div><a href="{{ route('logout') }}" class="btn btn-sm btn-secondary">Logout >></a></div>
              @endauth --}}

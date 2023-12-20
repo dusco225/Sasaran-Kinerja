@@ -34,9 +34,6 @@ class TargetController extends Controller
         } 
             $sasarans = Sasaran::all();
             return view('targets.create', compact('sasarans'));
-
-        
-    
     }
 
     /**
