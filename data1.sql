@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `kinerjas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sasarandb.kinerjas: ~19 rows (approximately)
 REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_at`) VALUES
@@ -83,7 +83,8 @@ REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_a
 	(31, 16, 'Jumlah Mahasiswa Asing Tahun 2022', '2023-12-09 10:10:28', '2023-12-09 10:10:28'),
 	(32, 17, 'Persentase jurnal ilmiah terakreditasi  nasional', '2023-12-09 10:10:56', '2023-12-09 10:10:56'),
 	(33, 17, 'Jumlah jurnal ilmiah terakreditasi nasional', '2023-12-09 10:13:59', '2023-12-09 10:13:59'),
-	(34, 17, 'Jumlah jurnal ilmiah yang dimiliki', '2023-12-09 10:15:03', '2023-12-09 10:15:03');
+	(34, 17, 'Jumlah jurnal ilmiah yang dimiliki', '2023-12-09 10:15:03', '2023-12-09 10:15:03'),
+	(66, 32, 'asadadasdad', '2023-12-17 19:28:38', '2023-12-17 19:28:38');
 
 -- Dumping structure for table sasarandb.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -133,9 +134,9 @@ CREATE TABLE IF NOT EXISTS `sasarans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.sasarans: ~9 rows (approximately)
+-- Dumping data for table sasarandb.sasarans: ~8 rows (approximately)
 REPLACE INTO `sasarans` (`id`, `sasaran`, `created_at`, `updated_at`) VALUES
 	(12, 'Menguatkan sistem pendidikan yang berperspektif moderat', '2023-12-09 09:50:03', '2023-12-09 09:50:03'),
 	(13, 'Menigkatnya partisipasi peserta didik pada satuan pendidikan', '2023-12-09 09:50:42', '2023-12-09 09:50:42'),
@@ -159,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sasarandb.targets: ~8 rows (approximately)
 REPLACE INTO `targets` (`id`, `sasaran_id`, `kinerja_id`, `tahunan`, `I`, `II`, `III`, `IV`, `created_at`, `updated_at`) VALUES
@@ -170,7 +171,8 @@ REPLACE INTO `targets` (`id`, `sasaran_id`, `kinerja_id`, `tahunan`, `I`, `II`, 
 	(8, 15, 30, NULL, NULL, NULL, NULL, NULL, '2023-12-11 07:01:39', '2023-12-11 07:01:39'),
 	(10, 12, 28, NULL, NULL, NULL, NULL, NULL, '2023-12-11 07:28:27', '2023-12-11 10:42:29'),
 	(12, 12, 16, '12', '12', '11', '12', '00', '2023-12-11 10:40:36', '2023-12-13 20:19:27'),
-	(13, 15, 26, NULL, NULL, NULL, NULL, NULL, '2023-12-11 18:20:32', '2023-12-11 18:20:32');
+	(13, 15, 26, NULL, NULL, NULL, NULL, NULL, '2023-12-11 18:20:32', '2023-12-11 18:20:32'),
+	(16, 32, 66, NULL, NULL, NULL, NULL, NULL, '2023-12-17 19:28:54', '2023-12-17 19:28:54');
 
 -- Dumping structure for table sasarandb.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -185,22 +187,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.users: ~5 rows (approximately)
+-- Dumping data for table sasarandb.users: ~13 rows (approximately)
 REPLACE INTO `users` (`id`, `name`, `jabatan`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Dekan', 'dekan', 'dekan@gmail.com', NULL, '$2y$12$lKLnO34B4w6UAh/0rxNAIOwDYrzp11yStGXoRjF6ZRjamqOI8OdDm', 'ArEodzosXifEImQwd3yEQFrKFwcTFy0X3KfowgFWITwuXKPDTTV6UvjC4iS7', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
-	(2, 'Operator', 'wakildekan', 'wd1@gmail.com', NULL, '$2y$12$YSgnbdjsTW7TahtdD9K0deUbplJcUINo.jCQ5.e/CK6buFMiHGD0K', '6oosR274VfCrLs8EiagvB4H7PuedvGsCPKKqEKm7Pe0YDkXHxeRiaFn7eCBh', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
+	(1, 'Dekan', 'dekan', 'dekan@gmail.com', NULL, '$2y$12$lKLnO34B4w6UAh/0rxNAIOwDYrzp11yStGXoRjF6ZRjamqOI8OdDm', 'vb34Feb1OObTvKH9HJHjzXclDmlFpTtyree3nbprLS88Fo6ANO78s3dkecVj', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
+	(2, 'Operator', 'operator', 'wd1@gmail.com', NULL, '$2y$12$YSgnbdjsTW7TahtdD9K0deUbplJcUINo.jCQ5.e/CK6buFMiHGD0K', '6oosR274VfCrLs8EiagvB4H7PuedvGsCPKKqEKm7Pe0YDkXHxeRiaFn7eCBh', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
 	(3, 'Wakil Dekan', 'wakildekan', 'wd2@gmail.com', NULL, '$2y$12$z1pJdpXseu8eyFEnOOQItOFtt./2wmGg1cNzIxkaCsAfdesaYdCX6', 'R5tB1HkfwqHy9e85TSY6j2Z2xe6Gq8lYcaXqSwHghZx4EYJyfUWKcKL8MOJd', '2023-12-17 18:59:29', '2023-12-17 18:59:29'),
 	(4, 'Wakil Dekan', 'wakildekan', 'wd3@gmail.com', NULL, '$2y$12$gjqLHadhuvLKzmajM8Sm/.6GU7h9o3jtJDc0HYHmGEruSMzR5IIyC', 'g8Cr3riKEVIH7d4nJB6Chiw1wRaPbIx3mvl7fR61Aao4BaRJWleQuZ8jdsGk', '2023-12-17 18:59:29', '2023-12-17 18:59:29'),
-	(5, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$12$9ye8G4R3.wjEJjrshR25yO/LoXNtCPnymCgq0AMVRzlg/u3u4pGO6', 'DJIFv6I5wI5tuqPS9Uh8Gd94MhmoIRXIKBGKwSCzPl03u20K1QmXPsiK1lxM', '2023-12-17 18:59:29', '2023-12-17 18:59:29'),
-	(6, 'Operator Matematika', 'operator', 'op701@gmail.com', NULL, '$2y$12$2Dhr6UNG.9n7z9vsDbibL.UGFQgFl15Z.z0Rrozrq8Plo4iUhs2zu', 'p1XEYKpwfhAhNhrC3aIqsRu7JGn3XG3pPp9eIjmPgbJ97hfOUWVURDdfMfBX', '2023-12-17 18:59:30', '2023-12-17 18:59:30'),
+	(5, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$12$9ye8G4R3.wjEJjrshR25yO/LoXNtCPnymCgq0AMVRzlg/u3u4pGO6', 'q0nA9hZSHwqe9a8cljBwunSTzfIQkyMNmEqpeD2nC9O0dm2qEIVSmNxqon83', '2023-12-17 18:59:29', '2023-12-17 18:59:29'),
+	(6, 'Operator Matematika', 'operator', 'op701@gmail.com', NULL, '$2y$12$2Dhr6UNG.9n7z9vsDbibL.UGFQgFl15Z.z0Rrozrq8Plo4iUhs2zu', 'pALzKg2kBF21a5HdvvOUu1SzJyzDTN3NeRHiX5O6C4dl9HK3VrsP0yRrULme', '2023-12-17 18:59:30', '2023-12-17 18:59:30'),
 	(7, 'Operator Biologi', 'operator', 'op702@gmail.com', NULL, '$2y$12$vVqTBhFgK/0wZRpLLL34xuq7mySQqkp2ZeoZNEX/NvpMegTkieuxi', '9pmmsp2rTnNMthieYJ6zNapEpohzNJZS8uQwkL3Jy7WenLhjY4wsn5hv9iXK', '2023-12-17 18:59:30', '2023-12-17 18:59:30'),
 	(8, 'Operator Fisika', 'operator', 'op703@gmail.com', NULL, '$2y$12$BQTQvwPWJ/xJPAAThuvfqebpJ8Vv.B3NC7DAwK.5GSV2HrMwXYGqK', 'CNmxMdVf9yo6N5ykSHyh7EXWRhA7Hp7DYuYzPCxcfvgMB9B4ZOaqlkRn14EI', '2023-12-17 18:59:31', '2023-12-17 18:59:31'),
 	(9, 'Operator Kimia', 'operator', 'op704@gmail.com', NULL, '$2y$12$7DghEi7q8a6A.V0MrW7M..Ilh17wkCQSIFHRTS06MWSywXxvPxr0K', '19rJTIJtnOy7HBgFh3deCnE0HCCOoLz4T4Bt3ng9wpDN3GMXqunfDJQs5yrP', '2023-12-17 18:59:31', '2023-12-17 18:59:31'),
 	(10, 'Operator Informatika', 'operator', 'op705@gmail.com', NULL, '$2y$12$71GSYk5GOhiJViGd3Tm4Ju1rdL2ntQJU64uOlJT.ZhO7fNifc6L1W', '26Z8BQtbd7fzPGWnpkEr1D5cFHaSYLwky3UxE4efN43F6hD3o4717nTFWDWt', '2023-12-17 18:59:32', '2023-12-17 18:59:32'),
 	(11, 'Operator Elektro', 'operator', 'op706@gmail.com', NULL, '$2y$12$KVx1MagC7lQiVAFAycxwSuj1w6fHxSXWXSyp86V/1CS2oSWAKD13.', 'eJlxgWr91NAb80qSGmNUPKrtpdWZakuXAp65zp4a3FilQ5nuZQoiyZc7Bub7', '2023-12-17 18:59:32', '2023-12-17 18:59:32'),
-	(12, 'Operator Agroteknologi', 'operator', 'op707@gmail.com', NULL, '$2y$12$kSZSfU.RcYdGN8k15L2LO.h9DnfzS6OxvzLgv10gNrc4CtB6pfSC.', 'AFMqf3wlwalQlWU8Ap7JPVZoK1ts5dUt8Hv7wH9gXMMRp86VhxqFWLltlCIV', '2023-12-17 18:59:33', '2023-12-17 18:59:33');
+	(12, 'Operator Agroteknologi', 'operator', 'op707@gmail.com', NULL, '$2y$12$kSZSfU.RcYdGN8k15L2LO.h9DnfzS6OxvzLgv10gNrc4CtB6pfSC.', 'NBDKSts5ovLM6PSGRjadtnWBS2ihiPL0YqKYuRcGvcRqR9COu9o3ldAu2o7z', '2023-12-17 18:59:33', '2023-12-17 18:59:33'),
+	(16, 'hadi', 'admin', 'hadiabdulrasyid7@gmail.com', NULL, '$2y$12$.8w31mI5rDN.Z2nMoKd5t.cekKcWSIacGAZqioHbbQp3JsZdQ5nBS', NULL, '2023-12-18 21:31:44', '2023-12-18 21:31:44');
 
 -- Dumping structure for view sasarandb.vw_kinerja
 -- Creating temporary table to overcome VIEW dependency errors
