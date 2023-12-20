@@ -19,10 +19,6 @@ class KinerjaController extends Controller
         $kinerjas = ViewKinerja::all();
         return view ('kinerjas.index', compact('kinerjas'));
     }
-    public function KinerjaExport()
-    {
-        return Excel::download(new KinerjaExport, 'pegawai.xlsx');
-    }
     public function create()
     {  $nilai = request()->input('nilai');
     

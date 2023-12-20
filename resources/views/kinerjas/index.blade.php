@@ -42,11 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
         <div class="card card-info card-outline">
           <div class="card-header">
-<<<<<<< HEAD
-            <a href="{{ route('kinerjaexport') }}" class="btn btn-primary">Export</a>
-=======
-
->>>>>>> 9eb600cf3153382623a24a9fb337cbd37cfecc40
+            
             <div class="card-tools">
               <a href="{{ route('kinerjas.create') }}" class="btn btn-primary">Tambah Data   <i class="fas fa-plus-square"></i></a>
             </div>
@@ -66,11 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               @foreach ($kinerjas as $kinerja)
               <tr>
                 <td>{{ $no++ }}</td>
-<<<<<<< HEAD
                 <td class="col-4">{{ $kinerja->sasaran }}</td>
-=======
-                <td class="col-4">{{ $kinerja->sasaran  }}</td>
->>>>>>> 9eb600cf3153382623a24a9fb337cbd37cfecc40
                 <td class="col-4">{{ $kinerja->kinerja }}</td>
                 <td><a href="{{ route('kinerjas.edit', $kinerja->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
                     <form action="{{ route('kinerjas.destroy', $kinerja->id) }}" method="post" style="display: inline">

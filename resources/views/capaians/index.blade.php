@@ -21,12 +21,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Target</h1>
+            <h1 class="m-0">Capaian</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="">Home</a></li>
-              <li class="breadcrumb-item active">Target</li>
+              <li class="breadcrumb-item active">Capaian</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -38,9 +37,9 @@
     <div class="content">
         <div class="card card-info card-outline">
           <div class="card-header">
-            <a href="{{ route('targetexport') }}" class="btn btn-primary">Export</a>
+              
             <div class="card-tools">
-              <a href="{{ route('targets.create') }}" class="btn btn-primary">Tambah Data    <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('capaians.create') }}" class="btn btn-primary">Tambah Capaian <i class="fas fa-plus-square"></i></a>
             </div>
           </div>
 
@@ -51,26 +50,29 @@
                   <th>Sasaran</th>
                   <th>Indikator Kinerja</th>
                   <th>Tahunan</th>
-                  <th colspan="4">Triwulan</th>
+                  <th>I</th>
+                  <th>II</th>
+                  <th>III</th>
+                  <th>IV</th>
                   <th>Aksi</th>
               </tr>
 
                 <?php $no = 1; ?>
 
 
-              @foreach ($targets as $target)
+              @foreach ($capaians as $capaian)
               <tr>
                 <td>{{ $no++ }}</td>
-                <td class="col-4">{{ $target->sasaran ? $target->sasaran->sasaran : 'Tidak ada data sasaran' }}</td>
-                <td class="col-4">{{ $target->kinerja ? $target->kinerja->kinerja : 'Tidak ada data kinerja' }}</td>
-                <td class="">{{ $target->tahunan }}</td>
-                <td class="">{{ $target->I }}</td>
-                <td class="">{{ $target->II }}</td>
-                <td class="">{{ $target->III }}</td>
-                <td class="">{{ $target->IV }}</td>
-                <td class="col-3">
-                  <a href="{{ route('targets.edit', $target->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
-                    <form action="{{ route('targets.destroy', $target->id) }}" method="post" style="display: inline">
+                <td class="col-2">{{ $capaian->sasaran ? $capaian->sasaran->sasaran : 'Tidak ada data sasaran' }}</td>
+                <td class="col-4">{{ $capaian->kinerja ? $capaian->kinerja->kinerja : 'Tidak ada data kinerja' }}</td>
+                <td>{{ $capaian->tahunan }}</td>
+                <td>{{ $capaian->I }}</td>
+                <td>{{ $capaian->II }}</td>
+                <td>{{ $capaian->III }}</td>
+                <td>{{ $capaian->IV }}</td>
+                <td>
+                  <a href="{{ route('capaians.edit', $capaian->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
+                    <form action="{{ route('capaians.destroy', $capaian->id) }}" method="post" style="display: inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="bi bi-trash"></i></button>
