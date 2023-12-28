@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ViewKinerja;
 use App\Models\Kinerja;
 use App\Models\Sasaran;
+use App\Models\ViewKinerja;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KinerjaExport;
+use App\Http\Controllers\Controller;
+
+
 
 class KinerjaController extends Controller
 {
@@ -13,6 +18,10 @@ class KinerjaController extends Controller
     {
         $kinerjas = ViewKinerja::all();
         return view ('kinerjas.index', compact('kinerjas'));
+    }
+    public function KinerjaExport()
+    {
+        return Excel::download(new KinerjaExport, 'Kinerja.xlsx');
     }
     public function create()
     {  $nilai = request()->input('nilai');

@@ -99,7 +99,7 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
+</div>
   <!-- Main Footer -->
   <footer class="main-footer">
    @include('Partials.footer')

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\sasaran;
 use App\Http\Requests\StoresasaranRequest;
 use App\Http\Requests\UpdatesasaranRequest;

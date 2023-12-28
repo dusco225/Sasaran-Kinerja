@@ -79,9 +79,10 @@
                     <label for="tahunan">Triwulan IV :</label>
                     <input type="text" name="IV" class="form-control mb-3" id="IV" placeholder="IV" autocomplete="off" autofocus >
                   </div>
-        
+                  <div class="form-group">
                 <!-- Tambahkan input form lainnya sesuai kebutuhan -->
                 <button type="submit" class="btn btn-primary">Simpan</button>
+              </div>
               </form>
           </div>
         </div>
@@ -89,6 +90,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  </div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

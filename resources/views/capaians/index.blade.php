@@ -37,9 +37,9 @@
     <div class="content">
         <div class="card card-info card-outline">
           <div class="card-header">
-
+            <a href="{{ route('capaianexport') }}" class="btn btn-success">Export</a>
             <div class="card-tools">
-              <a href="{{ route('capaians.create') }}" class="btn btn-primary">Tambah Capaian    <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('capaians.create') }}" class="btn btn-primary">Tambah Capaian <i class="fas fa-plus-square"></i></a>
             </div>
           </div>
 

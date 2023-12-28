@@ -68,7 +68,7 @@
         </ul>
         <ul class="nav nav-pills nav-sidebar flex-column">
           <li class="nav-item">
-            <a href="{{ route('users.index') }}" class="nav-link">
+            <a href="{{ route('users.index') }}" class="nav-link  {{ Request::is('users') ? 'active' : '' }}">
               <i class="bi bi-person-video2"></i>
               <p>User</p>
             </a>

@@ -8,7 +8,9 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SasaranController;
 use App\Http\Controllers\TargetController;
 use App\Http\Controllers\UserController;
+use App\Models\Kinerja;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sasarans', [SasaranController::class, 'index'])->name('sasarans.index');
     Route::get('/targets', [TargetController::class, 'index'])->name('targets.index');
     Route::get('/capaians', [CapaianController::class, 'index'])->name('capaians.index');
+    Route::get('/kinerjaexport', [KinerjaController::class, 'KinerjaExport'])->name('kinerjaexport');
+    Route::get('/targetexport', [TargetController::class, 'targetExport'])->name('targetexport');
+    Route::get('/capaianexport', [CapaianController::class, 'CapaianExport'])->name('capaianexport');
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
 });

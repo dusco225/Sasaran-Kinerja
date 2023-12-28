@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kinerja;
-use App\Models\ViewKinerja;
-use App\Models\ViewTarget;
-use App\Models\Sasaran;
 use App\Models\target;
+use App\Models\Kinerja;
+use App\Models\Sasaran;
+use App\Models\ViewTarget;
+use App\Models\ViewKinerja;
 use Illuminate\Http\Request;
+use App\Exports\targetExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TargetController extends Controller
 {
@@ -19,10 +21,10 @@ class TargetController extends Controller
         $targets = Target::all();
         return view('targets.index', compact('targets'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function targetExport()
+    {
+        return Excel::download(new targetExport, 'Target.xlsx');
+    }
     public function create()
     {     $nilai = request()->input('nilai');
     
@@ -68,10 +70,13 @@ class TargetController extends Controller
      */
     public function edit(target $target)
     {
-        $target = ViewTarget::all();
+        
+        // var_dump($target);exit;
+        $vwtarget = ViewTarget::all();
         $sasarans = Sasaran::all();
         $kinerjas = Kinerja::all();   
-        return view('targets.edit', compact('target','sasarans','kinerjas'));
+        return view('targets.edit', compact('target','sasarans','kinerjas','vwtarget'));
+
     }
 
     /**

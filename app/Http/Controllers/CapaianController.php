@@ -6,7 +6,10 @@ use App\Models\Capaian;
 use App\Models\Kinerja;
 use App\Models\Sasaran;
 use App\Models\ViewKinerja;
+use App\Models\ViewCapaian;
 use Illuminate\Http\Request;
+use App\Exports\CapaianExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CapaianController extends Controller
 {
@@ -14,6 +17,10 @@ class CapaianController extends Controller
     {
         $capaians = Capaian::all();
         return view('capaians.index', compact('capaians'));
+    }
+    public function CapaianExport()
+    {
+        return Excel::download(new CapaianExport, 'Capaian.xlsx');
     }
 
     public function create()

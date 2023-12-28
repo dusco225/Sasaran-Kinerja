@@ -24,19 +24,21 @@ CREATE TABLE IF NOT EXISTS `capaians` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `sasaran_id` int NOT NULL,
   `kinerja_id` int NOT NULL,
-  `tahunan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `I` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `II` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `III` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `IV` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tahunan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `I` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `II` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `III` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `IV` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.capaians: ~2 rows (approximately)
+-- Dumping data for table sasarandb.capaians: ~3 rows (approximately)
 REPLACE INTO `capaians` (`id`, `sasaran_id`, `kinerja_id`, `tahunan`, `I`, `II`, `III`, `IV`, `created_at`, `updated_at`) VALUES
-	(1, 12, 16, '1', '1', '1', '1', '1', '2023-12-13 21:31:04', '2023-12-13 21:35:44');
+	(1, 12, 16, '1', '1', '1', '1', '1', '2023-12-13 21:31:04', '2023-12-13 21:35:44'),
+	(3, 17, 34, '11', '2', '11', '32', '14', '2023-12-20 06:32:41', '2023-12-20 06:32:41'),
+	(4, 14, 22, '20', '2', '4', '7', '10', '2023-12-20 06:33:12', '2023-12-20 06:33:12');
 
 -- Dumping structure for table sasarandb.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
@@ -61,9 +63,9 @@ CREATE TABLE IF NOT EXISTS `kinerjas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.kinerjas: ~19 rows (approximately)
+-- Dumping data for table sasarandb.kinerjas: ~20 rows (approximately)
 REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_at`) VALUES
 	(16, 12, 'Rerata nilai ujian mata kuliah pendidikan agama pada PTK / PTU yang bermuatan mederasi beragama', '2023-12-09 09:57:10', '2023-12-09 09:57:10'),
 	(17, 13, 'Persentase peningkatan mahasiswa pada PTKI', '2023-12-09 09:59:26', '2023-12-09 09:59:26'),
@@ -84,7 +86,7 @@ REPLACE INTO `kinerjas` (`id`, `sasaran_id`, `kinerja`, `created_at`, `updated_a
 	(32, 17, 'Persentase jurnal ilmiah terakreditasi  nasional', '2023-12-09 10:10:56', '2023-12-09 10:10:56'),
 	(33, 17, 'Jumlah jurnal ilmiah terakreditasi nasional', '2023-12-09 10:13:59', '2023-12-09 10:13:59'),
 	(34, 17, 'Jumlah jurnal ilmiah yang dimiliki', '2023-12-09 10:15:03', '2023-12-09 10:15:03'),
-	(66, 32, 'asadadasdad', '2023-12-17 19:28:38', '2023-12-17 19:28:38');
+	(67, 34, 'dadadad', '2023-12-27 18:12:47', '2023-12-27 18:12:47');
 
 -- Dumping structure for table sasarandb.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -134,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `sasarans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table sasarandb.sasarans: ~8 rows (approximately)
 REPLACE INTO `sasarans` (`id`, `sasaran`, `created_at`, `updated_at`) VALUES
@@ -145,14 +147,15 @@ REPLACE INTO `sasarans` (`id`, `sasaran`, `created_at`, `updated_at`) VALUES
 	(16, 'Meningkatnya kualitas PTK yang bereputasi internasional', '2023-12-09 09:52:05', '2023-12-09 09:52:05'),
 	(17, 'Meningkatnya kualitas pemanfaatan penelitian', '2023-12-09 09:53:03', '2023-12-09 09:53:03'),
 	(18, 'Meningkatnya kualitas lulusan PTK yang di terima di dunia kerja', '2023-12-09 09:53:21', '2023-12-09 09:53:21'),
-	(19, 'Meningkatnya tata kelola organisasi Unit Eselon 1 yang efektik dan akuntabel', '2023-12-09 09:54:03', '2023-12-09 09:54:13');
+	(19, 'Meningkatnya tata kelola organisasi Unit Eselon 1 yang efektik dan akuntabel', '2023-12-09 09:54:03', '2023-12-09 09:54:13'),
+	(34, 'adasdad', '2023-12-27 18:12:38', '2023-12-27 18:12:38');
 
 -- Dumping structure for table sasarandb.targets
 CREATE TABLE IF NOT EXISTS `targets` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `sasaran_id` int DEFAULT NULL,
   `kinerja_id` int NOT NULL,
-  `tahunan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tahunan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `I` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `II` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `III` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -160,9 +163,9 @@ CREATE TABLE IF NOT EXISTS `targets` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table sasarandb.targets: ~8 rows (approximately)
+-- Dumping data for table sasarandb.targets: ~9 rows (approximately)
 REPLACE INTO `targets` (`id`, `sasaran_id`, `kinerja_id`, `tahunan`, `I`, `II`, `III`, `IV`, `created_at`, `updated_at`) VALUES
 	(2, 12, 16, '12', '1', '2', '3', '7', '2023-12-11 05:41:24', '2023-12-11 09:43:13'),
 	(3, 12, 16, '1', '11', '1', '1', '1', '2023-12-11 05:54:15', '2023-12-13 20:20:28'),
@@ -172,13 +175,13 @@ REPLACE INTO `targets` (`id`, `sasaran_id`, `kinerja_id`, `tahunan`, `I`, `II`, 
 	(10, 12, 28, NULL, NULL, NULL, NULL, NULL, '2023-12-11 07:28:27', '2023-12-11 10:42:29'),
 	(12, 12, 16, '12', '12', '11', '12', '00', '2023-12-11 10:40:36', '2023-12-13 20:19:27'),
 	(13, 15, 26, NULL, NULL, NULL, NULL, NULL, '2023-12-11 18:20:32', '2023-12-11 18:20:32'),
-	(16, 32, 66, NULL, NULL, NULL, NULL, NULL, '2023-12-17 19:28:54', '2023-12-17 19:28:54');
+	(17, 34, 67, NULL, NULL, NULL, NULL, NULL, '2023-12-27 18:13:02', '2023-12-27 18:13:02');
 
 -- Dumping structure for table sasarandb.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jabatan` enum('dekan','wakildekan','operator','admin') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jabatan` enum('dekan','wakildekan','operator','admin') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -191,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Dumping data for table sasarandb.users: ~13 rows (approximately)
 REPLACE INTO `users` (`id`, `name`, `jabatan`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Dekan', 'dekan', 'dekan@gmail.com', NULL, '$2y$12$lKLnO34B4w6UAh/0rxNAIOwDYrzp11yStGXoRjF6ZRjamqOI8OdDm', 'vb34Feb1OObTvKH9HJHjzXclDmlFpTtyree3nbprLS88Fo6ANO78s3dkecVj', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
+	(1, 'Dekan', 'dekan', 'dekan@gmail.com', NULL, '$2y$12$lKLnO34B4w6UAh/0rxNAIOwDYrzp11yStGXoRjF6ZRjamqOI8OdDm', '4HGTi2svGA7NFxL7PZgo3tcmd67GvhaIyTAUyFUromYsojMeOLPAtcseEBJq', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
 	(2, 'Operator', 'operator', 'wd1@gmail.com', NULL, '$2y$12$YSgnbdjsTW7TahtdD9K0deUbplJcUINo.jCQ5.e/CK6buFMiHGD0K', '6oosR274VfCrLs8EiagvB4H7PuedvGsCPKKqEKm7Pe0YDkXHxeRiaFn7eCBh', '2023-12-17 18:59:28', '2023-12-17 18:59:28'),
 	(3, 'Wakil Dekan', 'wakildekan', 'wd2@gmail.com', NULL, '$2y$12$z1pJdpXseu8eyFEnOOQItOFtt./2wmGg1cNzIxkaCsAfdesaYdCX6', 'R5tB1HkfwqHy9e85TSY6j2Z2xe6Gq8lYcaXqSwHghZx4EYJyfUWKcKL8MOJd', '2023-12-17 18:59:29', '2023-12-17 18:59:29'),
 	(4, 'Wakil Dekan', 'wakildekan', 'wd3@gmail.com', NULL, '$2y$12$gjqLHadhuvLKzmajM8Sm/.6GU7h9o3jtJDc0HYHmGEruSMzR5IIyC', 'g8Cr3riKEVIH7d4nJB6Chiw1wRaPbIx3mvl7fR61Aao4BaRJWleQuZ8jdsGk', '2023-12-17 18:59:29', '2023-12-17 18:59:29'),
@@ -205,6 +208,40 @@ REPLACE INTO `users` (`id`, `name`, `jabatan`, `email`, `email_verified_at`, `pa
 	(12, 'Operator Agroteknologi', 'operator', 'op707@gmail.com', NULL, '$2y$12$kSZSfU.RcYdGN8k15L2LO.h9DnfzS6OxvzLgv10gNrc4CtB6pfSC.', 'NBDKSts5ovLM6PSGRjadtnWBS2ihiPL0YqKYuRcGvcRqR9COu9o3ldAu2o7z', '2023-12-17 18:59:33', '2023-12-17 18:59:33'),
 	(16, 'hadi', 'admin', 'hadiabdulrasyid7@gmail.com', NULL, '$2y$12$.8w31mI5rDN.Z2nMoKd5t.cekKcWSIacGAZqioHbbQp3JsZdQ5nBS', NULL, '2023-12-18 21:31:44', '2023-12-18 21:31:44');
 
+-- Dumping structure for view sasarandb.view_kinerja
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `view_kinerja` (
+	`id` BIGINT(20) UNSIGNED NOT NULL,
+	`sasaran_id` INT(10) NULL,
+	`sasaran` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`kinerja_id` INT(10) NOT NULL,
+	`kinerja` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`tahunan` VARCHAR(50) NULL COLLATE 'utf8mb4_unicode_ci',
+	`I` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`II` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`III` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`IV` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`created_at` TIMESTAMP NULL,
+	`updated_at` TIMESTAMP NULL
+) ENGINE=MyISAM;
+
+-- Dumping structure for view sasarandb.vw_capaian
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_capaian` (
+	`id` BIGINT(20) UNSIGNED NOT NULL,
+	`sasaran_id` INT(10) NOT NULL,
+	`sasaran` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`kinerja_id` INT(10) NOT NULL,
+	`kinerja` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`tahunan` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`I` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`II` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`III` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`IV` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`created_at` TIMESTAMP NULL,
+	`updated_at` TIMESTAMP NULL
+) ENGINE=MyISAM;
+
 -- Dumping structure for view sasarandb.vw_kinerja
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `vw_kinerja` (
@@ -214,10 +251,42 @@ CREATE TABLE `vw_kinerja` (
 	`kinerja` TEXT NOT NULL COLLATE 'utf8mb4_unicode_ci'
 ) ENGINE=MyISAM;
 
+-- Dumping structure for view sasarandb.vw_target
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `vw_target` (
+	`id` BIGINT(20) UNSIGNED NOT NULL,
+	`sasaran_id` INT(10) NULL,
+	`sasaran` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`kinerja_id` INT(10) NOT NULL,
+	`kinerja` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`tahunan` VARCHAR(50) NULL COLLATE 'utf8mb4_unicode_ci',
+	`I` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`II` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`III` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`IV` VARCHAR(255) NULL COLLATE 'utf8mb4_unicode_ci',
+	`created_at` TIMESTAMP NULL,
+	`updated_at` TIMESTAMP NULL
+) ENGINE=MyISAM;
+
+-- Dumping structure for view sasarandb.view_kinerja
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `view_kinerja`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_kinerja` AS select `target`.`id` AS `id`,`target`.`sasaran_id` AS `sasaran_id`,coalesce(`sasaran`.`sasaran`,'') AS `sasaran`,`target`.`kinerja_id` AS `kinerja_id`,coalesce(`kinerja`.`kinerja`,'') AS `kinerja`,`target`.`tahunan` AS `tahunan`,`target`.`I` AS `I`,`target`.`II` AS `II`,`target`.`III` AS `III`,`target`.`IV` AS `IV`,`target`.`created_at` AS `created_at`,`target`.`updated_at` AS `updated_at` from ((`targets` `target` left join `sasarans` `sasaran` on((`target`.`sasaran_id` = `sasaran`.`id`))) left join `kinerjas` `kinerja` on((`target`.`kinerja_id` = `kinerja`.`id`)));
+
+-- Dumping structure for view sasarandb.vw_capaian
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_capaian`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_capaian` AS select `capaian`.`id` AS `id`,`capaian`.`sasaran_id` AS `sasaran_id`,coalesce(`sasaran`.`sasaran`,'') AS `sasaran`,`capaian`.`kinerja_id` AS `kinerja_id`,coalesce(`kinerja`.`kinerja`,'') AS `kinerja`,`capaian`.`tahunan` AS `tahunan`,`capaian`.`I` AS `I`,`capaian`.`II` AS `II`,`capaian`.`III` AS `III`,`capaian`.`IV` AS `IV`,`capaian`.`created_at` AS `created_at`,`capaian`.`updated_at` AS `updated_at` from ((`capaians` `capaian` left join `sasarans` `sasaran` on((`capaian`.`sasaran_id` = `sasaran`.`id`))) left join `kinerjas` `kinerja` on((`capaian`.`kinerja_id` = `kinerja`.`id`)));
+
 -- Dumping structure for view sasarandb.vw_kinerja
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `vw_kinerja`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_kinerja` AS select `kinerja`.`id` AS `id`,`kinerja`.`sasaran_id` AS `sasaran_id`,coalesce(`sasaran`.`sasaran`) AS `sasaran`,`kinerja`.`kinerja` AS `kinerja` from (`kinerjas` `kinerja` left join `sasarans` `sasaran` on((`kinerja`.`sasaran_id` = `sasaran`.`id`)));
+
+-- Dumping structure for view sasarandb.vw_target
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `vw_target`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_target` AS select `target`.`id` AS `id`,`target`.`sasaran_id` AS `sasaran_id`,coalesce(`sasaran`.`sasaran`,'') AS `sasaran`,`target`.`kinerja_id` AS `kinerja_id`,coalesce(`kinerja`.`kinerja`,'') AS `kinerja`,`target`.`tahunan` AS `tahunan`,`target`.`I` AS `I`,`target`.`II` AS `II`,`target`.`III` AS `III`,`target`.`IV` AS `IV`,`target`.`created_at` AS `created_at`,`target`.`updated_at` AS `updated_at` from ((`targets` `target` left join `sasarans` `sasaran` on((`target`.`sasaran_id` = `sasaran`.`id`))) left join `kinerjas` `kinerja` on((`target`.`kinerja_id` = `kinerja`.`id`)));
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
