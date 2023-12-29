@@ -55,7 +55,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="sasaran_id">Sasaran :</label>
                     <select class="form-control" id="sasaran_id" name="sasaran_id">
                       @foreach ($sasarans as $sasaran)
-                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>
+                        <option value="{{ $sasaran->id }}" {{ $sasaran->id == $capaian->sasaran_id ? 'selected' : '' }}>
+                          {{ $sasaran->sasaran }}
+                        </option>
                       @endforeach
                     </select>
                 </div>
@@ -64,7 +66,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="kinerja_id">Indikator Kinerja :</label>
                     <select class="form-control" id="kinerja_id" name="kinerja_id">
                       @foreach ($kinerjas as $kinerja)
-                        <option value="{{ $kinerja->id }}">{{ $kinerja->kinerja }}</option>
+                        <option value="{{ $kinerja->id }}" {{ $kinerja->id == $capaian->kinerja_id ? 'selected' : '' }}>
+                          {{ $kinerja->kinerja }}
+                        </option>
                       @endforeach
                     </select>
                 </div>

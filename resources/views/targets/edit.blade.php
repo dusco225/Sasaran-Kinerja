@@ -55,7 +55,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="sasaran_id">Sasaran :</label>
                     <select class="form-control" id="sasaran_id" name="sasaran_id">
                       @foreach ($sasarans as $sasaran)
-                        <option value="{{ $sasaran->id }}">{{ $sasaran->sasaran }}</option>
+                        <option value="{{ $sasaran->id }}" {{ $sasaran->id == $target->sasaran_id ? 'selected' : '' }}>
+                          {{ $sasaran->sasaran }}
+                        </option>
                       @endforeach
                     </select>
                 </div>
@@ -64,17 +66,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label for="kinerja_id">Indikator Kinerja :</label>
                     <select class="form-control" id="kinerja_id" name="kinerja_id">
                       @foreach ($kinerjas as $kinerja)
-                        <option value="{{ $kinerja->id }}">{{ $kinerja->kinerja }}</option>
+                        <option value="{{ $kinerja->id }}" {{ $kinerja->id == $target->kinerja_id ? 'selected' : '' }}>
+                        {{ $kinerja->kinerja }}
+                        </option>
                       @endforeach
                     </select>
-                </div>
-{{-- 
-                <div class="form-group">
-                    <input type="text" name="sasaran" class="form-control mb-3" value="{{ $target->sasaran->sasaran }}" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="kinerja" class="form-control" value="{{ $target->kinerja->kinerja }}" required>
-                </div> --}}
+
                 <div class="form-group">
                     <label for="tahunan">Tahunan :</label>
                     <input type="text" name="tahunan" class="form-control" value="{{ $target->tahunan }}" autofocus>

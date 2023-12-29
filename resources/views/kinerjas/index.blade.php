@@ -7,8 +7,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
  @include('Partials.head')
 </head>
-
-<body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -41,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
         <div class="card card-info card-outline">
           <div class="card-header">
-            <a href="{{ route('kinerjaexport') }}" class="btn btn-success">Export</a>
+            <a href="{{ route('kinerjaexport') }}" class="btn btn-success">Export  <i class="bi bi-filetype-xlsx"></i></a>
             <div class="card-tools">
               <a href="{{ route('kinerjas.create') }}" class="btn btn-primary">Tambah Data   <i class="fas fa-plus-square"></i></a>
             </div>
@@ -62,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <tr>
                 <td>{{ $no++ }}</td>
                 <td class="col-4">{{ $kinerja->sasaran }}</td>
-                <td class="col-4">{{ $kinerja->kinerja }}</td>
+                <td class="col-5">{{ $kinerja->kinerja }}</td>
                 <td><a href="{{ route('kinerjas.edit', $kinerja->id) }}" class="btn btn-warning m-1 "><i class="bi bi-pencil-square"></i></a>
                     <form action="{{ route('kinerjas.destroy', $kinerja->id) }}" method="post" style="display: inline">
                         @csrf
@@ -72,7 +70,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </td>
               </tr>
               @endforeach
-                  
             </table>
           </div>
         </div>
@@ -85,11 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
+  
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->

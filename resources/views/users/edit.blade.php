@@ -52,10 +52,19 @@
                     <label for="jabatan">Jabatan :</label>
                     <select class="form-control" name="jabatan" autofocus required>
                         <option value="">--Pilih Jabatan--</option>
-                        <option value="dekan" {{ $user->jabatan === 'dekan' ? 'selected' : '' }}>Dekan</option>
-                        <option value="wakildekan" {{ $user->jabatan === 'wakildekan' ? 'selected' : '' }}>Wakil Dekan</option>
-                        <option value="operator" {{ $user->jabatan === 'operator' ? 'selected' : '' }}>Operator</option>
-                        <option value="admin" {{ $user->jabatan === 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="Dekan" {{ $user->jabatan === 'Dekan' ? 'selected' : '' }}>Dekan</option>
+                        <option value="Wakil Dekan" {{ $user->jabatan === 'Wakil Dekan' ? 'selected' : '' }}>Wakil Dekan</option>
+                        <option value="Operator" {{ $user->jabatan === 'Operator' ? 'selected' : '' }}>Operator</option>
+                        <option value="Admin" {{ $user->jabatan === 'Admin' ? 'selected' : '' }}>Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role :</label>
+                    <select class="form-control" name="role" autofocus required>
+                        <option value="">--Pilih Role--</option>
+                        <option value="dekan" {{ $user->role === 'dekan' ? 'selected' : '' }}>Dekan</option>
+                        <option value="operator" {{ $user->role === 'operator' ? 'selected' : '' }}>Operator</option>
+                        <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
                     </select>
                 </div>
                 <div class="form-group">
