@@ -18,7 +18,6 @@ class TargetExport implements FromCollection, WithHeadings, WithMapping, ShouldA
     public function map($target): array
     {
         return [
-            (string) $target->id,
             $target->sasaran,
             $target->kinerja,
             $target->tahunan,
@@ -26,15 +25,12 @@ class TargetExport implements FromCollection, WithHeadings, WithMapping, ShouldA
             $target->II,
             $target->III,
             $target->IV,
-            $target->created_at,
-            $target->updated_at,
         ];
     }
 
     public function headings(): array
     {
         return [
-            'ID',
             'Sasaran',
             'Kinerja',
             'Tahunan',
@@ -42,8 +38,6 @@ class TargetExport implements FromCollection, WithHeadings, WithMapping, ShouldA
             'II',
             'III',
             'IV',
-            'Created At',
-            'Updated At',
         ];
     }
 }

@@ -18,7 +18,6 @@ class CapaianExport implements FromCollection, WithHeadings, WithMapping, Should
     public function map($capaian): array
     {
         return [
-            (string) $capaian->id,
             $capaian->sasaran,
             $capaian->kinerja,
             $capaian->tahunan,
@@ -26,15 +25,12 @@ class CapaianExport implements FromCollection, WithHeadings, WithMapping, Should
             $capaian->II,
             $capaian->III,
             $capaian->IV,
-            $capaian->created_at,
-            $capaian->updated_at,
         ];
     }
 
     public function headings(): array
     {
         return [
-            'ID',
             'Sasaran',
             'Kinerja',
             'Tahunan',
@@ -42,8 +38,6 @@ class CapaianExport implements FromCollection, WithHeadings, WithMapping, Should
             'II',
             'III',
             'IV',
-            'Created At',
-            'Updated At',
         ];
     }
 }

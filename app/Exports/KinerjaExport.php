@@ -18,7 +18,6 @@ class KinerjaExport implements FromCollection, WithHeadings, WithMapping, Should
     public function map($kinerja): array
     {
         return [
-            (string) $kinerja->id,
             $kinerja->sasaran,
             $kinerja->kinerja,
         ];
@@ -27,7 +26,6 @@ class KinerjaExport implements FromCollection, WithHeadings, WithMapping, Should
     public function headings(): array
     {
         return [
-            'ID',
             'Sasaran',
             'Kinerja',
         ];
