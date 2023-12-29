@@ -21,7 +21,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'jabatan' => 'required|in:dekan,wakildekan,operator,admin',
+            'jabatan' => 'required|in:Dekan,Wakil Dekan,Operator,Admin',
+            'role' => 'required|in:dekan,operator,admin',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
         ]);
@@ -31,6 +32,7 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'jabatan' => $request->jabatan,
+            'role' => $request->role,
             'email' => $request->email,
             'password' => $password,
         ]);
@@ -53,7 +55,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'jabatan' => 'required|in:dekan,wakildekan,operator,admin',
+            'jabatan' => 'required|in:Dekan,Wakil Dekan,Operator,Admin',
+            'role' => 'required|in:dekan,operator,admin',
             'email' => 'required|email|unique:users,email,'.$user->id,
             'password' => 'nullable|min:8',
         ]);
@@ -63,6 +66,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'jabatan' => $request->jabatan,
+            'role' => $request->role,
             'email' => $request->email,
             'password' => $password,
         ]);

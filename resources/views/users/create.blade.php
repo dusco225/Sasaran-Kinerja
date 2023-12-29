@@ -51,12 +51,21 @@
                     <label for="jabatan">Jabatan :</label>
                     <select class="form-control" name="jabatan" autofocus required>
                       <option value="">--Pilih Jabatan--</option>
-                      <option value="dekan">Dekan</option>
-                      <option value="wakildekan">Wakil Dekan</option>
-                      <option value="operator">Operator</option>
-                      <option value="admin">Admin</option>
+                      <option value="Dekan">Dekan</option>
+                      <option value="Wakil Dekan">Wakil Dekan</option>
+                      <option value="Operator">Operator</option>
+                      <option value="Admin">Admin</option>
                     </select>
                 </div>
+                <div class="form-group">
+                  <label for="role">Role :</label>
+                  <select class="form-control" name="role" autofocus required>
+                    <option value="">--Pilih Role--</option>
+                    <option value="dekan">Dekan</option>
+                    <option value="operator">Operator</option>
+                    <option value="admin">Admin</option>
+                  </select>
+              </div>
                 <div class="form-group">
                     <label for="email">Email :</label>
                     <input type="email" name="email" class="form-control mb-3" autocomplete="off" autofocus required>
