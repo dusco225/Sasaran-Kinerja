@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Capaian extends Model
 {
-    protected $fillable = ['sasaran_id', 'kinerja_id','tahunan','I','II','III','IV'];
+    protected $fillable = ['user_id','sasaran_id', 'kinerja_id','tahunan','I','II','III','IV'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
         
     public function sasaran()
     {
@@ -19,4 +24,5 @@ class Capaian extends Model
         return $this->belongsTo(Kinerja::class, 'kinerja_id');
     }
     
+  
 }

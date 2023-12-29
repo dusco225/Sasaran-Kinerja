@@ -73,9 +73,8 @@ img.icon{
 <div class="w3-container w3-light-grey" style="padding:128px 16px">
   <div class="w3-row-padding">
       <div class="w3-col m6">
-          <h3>Aufa kocok.</h3>
-          <p>Dikocok kocok aufa dikocok kocok Dikocok kocok aufa dikocok kocok Dikocok kocok aufa dikocok kocok</p>
-          <p><a href="#work" class="w3-button w3-black w3-round-large"><i class="fa fa-th"> </i> Lihat Karya Kami</a></p>
+          <h3>Teknik Informatika</h3>
+          <p>Universitas Islam Negeri Sunan Gunung Djati biasa disingkat UIN SGD adalah salah satu universitas islam di Indonesia. UIN SGD terletak di Jl. A.H. Nasution No. 105A, Cibiru,, Bandung, Jawa Barat, Indonesia 40614.</p>
       </div>
       <!-- Tambahan: Animasi pada gambar atau elemen lainnya -->
       <div class="w3-col m6">

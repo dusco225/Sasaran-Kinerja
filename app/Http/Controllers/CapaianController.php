@@ -2,21 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Capaian;
 use App\Models\Kinerja;
 use App\Models\Sasaran;
-use App\Models\ViewKinerja;
 use App\Models\ViewCapaian;
+use App\Models\ViewKinerja;
 use Illuminate\Http\Request;
 use App\Exports\CapaianExport;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CapaianController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $capaians = Capaian::all();
-        return view('capaians.index', compact('capaians'));
+         // Dapatkan informasi pengguna yang sedang login
+    $user = Auth::user();
+
+    if ($user->role == 'admin' ) {
+        // Jika pengguna adalah admin atau dekan, ambil semua capaian
+        $capaians = Capaian::query();
+
+        $filterUser = $request->input('filter_user');
+        if ($filterUser) {
+            $capaians->where('user_id', $filterUser);
+        }
+
+    } else {
+        // Jika bukan admin atau dekan, saring data Capaian berdasarkan user_id yang sesuai
+        $capaians = Capaian::where('user_id', $user->id);
+    }
+
+    $capaians = $capaians->get();
+
+    $allUsers = ($user->role == 'admin') ? User::all() : null;
+
+    return view('capaians.index', compact('capaians', 'user', 'allUsers'));
     }
     public function CapaianExport()
     {
@@ -50,9 +72,17 @@ class CapaianController extends Controller
             'III' => 'nullable',
             'IV' => 'nullable',
         ]);
+ // Dapatkan informasi pengguna yang sedang login
+ $user = Auth::user();
 
-        Capaian::create($request->all());
+ // Tambahkan user_id ke data sebelum disimpan
+ $data = $request->all();
+ $data['user_id'] = $user->id;
 
+ Capaian::create($data);
+
+ return redirect()->route('capaians.index')
+     ->with('success', 'Data Kinerja berhasil ditambahkan!');
         return redirect()->route('capaians.index')
             ->with('success', 'Data Kinerja berhasil ditambahkan!');
     }
@@ -71,7 +101,7 @@ class CapaianController extends Controller
 
     public function update(Request $request, Capaian $capaian)
     {
-        $request->validate([
+        $request->validate([    
             'sasaran_id' => 'required',
             'kinerja_id' => 'required',
             'tahunan' => 'nullable',

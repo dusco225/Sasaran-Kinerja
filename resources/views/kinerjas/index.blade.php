@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="card-header">
             <a href="{{ route('kinerjaexport') }}" class="btn btn-success">Export  <i class="bi bi-filetype-xlsx"></i></a>
             <div class="card-tools">
-              <a href="{{ route('kinerjas.create') }}" class="btn btn-primary">Tambah Data   <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('kinerjas.create') }}" class="btn btn-primary">Tambah Kinerja   <i class="fas fa-plus-square"></i></a>
             </div>
           </div>
 

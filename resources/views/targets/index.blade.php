@@ -39,7 +39,7 @@
           <div class="card-header">
             <a href="{{ route('targetexport') }}" class="btn btn-success">Export  <i class="bi bi-filetype-xlsx"></i></a>
             <div class="card-tools">
-              <a href="{{ route('targets.create') }}" class="btn btn-primary">Tambah Data    <i class="fas fa-plus-square"></i></a>
+              <a href="{{ route('targets.create') }}" class="btn btn-primary">Tambah Target    <i class="fas fa-plus-square"></i></a>
             </div>
           </div>
 

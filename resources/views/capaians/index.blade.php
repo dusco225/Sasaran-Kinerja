@@ -41,7 +41,27 @@
             <div class="card-tools">
               <a href="{{ route('capaians.create') }}" class="btn btn-primary">Tambah Capaian <i class="fas fa-plus-square"></i></a>
             </div>
-          </div>
+          
+
+          <form class="mt-2" method="get" action="{{ route('capaians.index') }}">
+            <!-- ... elemen filter lainnya ... -->
+        
+            @if (isset($user) && ($user->role == 'admin'))
+                <label for="filter_user">Filter User:</label>
+                <select name="filter_user" id="filter_user">
+                    <option value="">Semua User</option>
+                  @foreach($allUsers as $u)
+                  @if ($u->role != 'dekan')
+                    <option value="{{ $u->id }}">{{ $u->name }}</option>
+                  @endif
+                @endforeach
+            </select>
+            <button type="submit" >Filter</button>
+          @endif
+
+        </form>
+      </div>
+        
 
           <div class="card-body">
             <table class="table table-bordered">
